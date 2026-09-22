@@ -89,6 +89,100 @@
         { "type": "h2", "text": "Where to start" },
         { "type": "p", "text": "If you're not sure what to ask for, start from prompts that already work and swap in your own business details — that's faster than writing from a blank page, and it's exactly what the free marketing prompt pack linked below is for." }
       ]
+    },
+    {
+      "slug": "chatgpt-study-guide-for-students",
+      "title": "How to Use ChatGPT to Study Smarter (Without It Doing Your Homework)",
+      "description": "A practical system for turning ChatGPT into a personal tutor — flashcards, practice quizzes, and breaking down hard topics, without it just doing the work for you.",
+      "date": "2026-09-22",
+      "related_slugs": ["chatgpt-prompts-study-smarter"],
+      "body": [
+        { "type": "p", "text": "ChatGPT can be the best study partner you've ever had, or a shortcut that quietly makes you worse at the subject — the difference is entirely in how you use it." },
+        { "type": "h2", "text": "The right way to use AI to study" },
+        { "type": "p", "text": "The goal isn't to get answers, it's to get understanding faster. Used well, ChatGPT explains, quizzes, and drills you; used badly, it just does the work and you learn nothing." },
+        { "type": "h2", "text": "Four study tasks ChatGPT is genuinely good at" },
+        { "type": "ul", "items": [
+          "Explaining a hard concept multiple ways until one clicks — ask for a different analogy if the first doesn't land.",
+          "Turning your notes into flashcards or a quiz automatically, so review takes minutes instead of an hour of re-writing.",
+          "Acting as an examiner and asking you tough questions, instead of the other way around.",
+          "Summarizing a long reading into the handful of ideas you actually need to remember."
+        ]},
+        { "type": "h2", "text": "The rule that keeps it from backfiring" },
+        { "type": "p", "text": "Never let ChatGPT write your actual answer to a graded assignment — use it to check your understanding after you've attempted something yourself, not before." },
+        { "type": "h2", "text": "A simple study routine" },
+        { "type": "p", "text": "Read the material once. Ask ChatGPT to quiz you on it. Get something wrong, ask it to explain that specific gap. Repeat the quiz a day later — spaced repetition is still the best-studied memory technique, and ChatGPT makes running it painless." },
+        { "type": "h2", "text": "Where to start" },
+        { "type": "p", "text": "If you're not sure how to phrase study prompts, start from ones already built around this method — that's what the study prompt pack linked below is for." }
+      ]
+    },
+    {
+      "slug": "chatgpt-job-search-guide",
+      "title": "How to Use ChatGPT for Your Job Search Without Sounding Like Everyone Else",
+      "description": "Recruiters can spot a copy-pasted AI resume in seconds. Here's how to use ChatGPT for your job search so it sounds like you, not like a template.",
+      "date": "2026-09-22",
+      "related_slugs": ["chatgpt-prompts-resume-job-hunting"],
+      "body": [
+        { "type": "p", "text": "Recruiters read hundreds of resumes a week, and AI-generic ones are now the easiest to spot and skip — the fix isn't avoiding ChatGPT, it's using it as an editor, not an author." },
+        { "type": "h2", "text": "Where ChatGPT actually helps a job search" },
+        { "type": "ul", "items": [
+          "Turning a vague duty into a results-focused bullet point — \"managed a team\" becomes \"led a 6-person team to a 20% output increase.\"",
+          "Rehearsing interview answers against likely questions before the real thing.",
+          "Explaining a career gap or pivot in one clean, honest paragraph instead of over-explaining live in the interview.",
+          "Drafting a first pass of a cover letter you then rewrite in your own voice."
+        ]},
+        { "type": "h2", "text": "The one thing that gives away an AI resume" },
+        { "type": "p", "text": "Generic phrasing that could apply to anyone — \"results-driven professional,\" \"team player,\" \"excellent communication skills.\" Get a first draft from ChatGPT, then delete every sentence that isn't specific to you." },
+        { "type": "h2", "text": "A better way to prompt it" },
+        { "type": "p", "text": "Instead of \"write me a resume,\" paste your actual work history and the job description together, and ask it to find the overlap — specific input produces specific, useful output instead of generic filler." },
+        { "type": "h2", "text": "Where to start" },
+        { "type": "p", "text": "The resume and job-hunting prompt pack linked below is built around exactly this — prompts that ask for specifics, not generic corporate language." }
+      ]
+    },
+    {
+      "slug": "notion-ai-get-organized-guide",
+      "title": "How to Use Notion AI to Actually Get Organized (Not Just Feel Organized)",
+      "description": "Most Notion setups collapse in about two weeks. Here's how to use Notion AI to build systems you'll actually keep using, not another abandoned dashboard.",
+      "date": "2026-09-22",
+      "related_slugs": ["notion-ai-prompts-productivity"],
+      "body": [
+        { "type": "p", "text": "Notion has a reputation for being where productivity systems go to die — beautiful for a week, then forgotten. Notion AI doesn't fix that on its own, but it removes the single biggest reason systems get abandoned: setup friction." },
+        { "type": "h2", "text": "Why productivity systems usually fail" },
+        { "type": "p", "text": "Not lack of discipline — most people quit because building the system took longer than using it would have saved them. Notion AI collapses that setup time from hours to minutes." },
+        { "type": "h2", "text": "Where Notion AI earns its keep" },
+        { "type": "ul", "items": [
+          "Turning a messy brain dump into an organized, prioritized task list in one step.",
+          "Summarizing a long meeting transcript into action items with clear owners.",
+          "Designing a database structure — columns and properties — for a tracker before you've built anything.",
+          "Cleaning up scattered notes into a single, categorized reference doc."
+        ]},
+        { "type": "h2", "text": "The habit that actually makes it stick" },
+        { "type": "p", "text": "Review, don't rebuild. Once a week, ask Notion AI to summarize what changed and what's overdue — reviewing an existing system takes two minutes; rebuilding one from scratch every time you fall behind is what causes the abandonment cycle." },
+        { "type": "h2", "text": "Where to start" },
+        { "type": "p", "text": "If setting up the first version feels like the hard part, the productivity prompt pack linked below gives you ready-made prompts for the most common trackers and templates." }
+      ]
+    },
+    {
+      "slug": "freelance-proposal-that-wins-clients",
+      "title": "How to Write a Freelance Proposal That Actually Wins the Client",
+      "description": "Most freelance proposals get ignored because they read like a template. Here's the structure that gets replies, plus where AI genuinely helps write one.",
+      "date": "2026-09-22",
+      "related_slugs": ["chatgpt-prompts-freelancers-proposals", "chatgpt-prompts-small-business-marketing"],
+      "body": [
+        { "type": "p", "text": "Most freelance proposals fail before the pricing section — they read like they were sent to fifty other clients too, because they were." },
+        { "type": "h2", "text": "The structure that gets replies" },
+        { "type": "ul", "items": [
+          "Open with their problem, not your bio — prove you understood the brief in the first two sentences.",
+          "State the outcome, not just the deliverable — \"a landing page that converts\" beats \"a landing page.\"",
+          "Show scope and timeline plainly — vagueness reads as inexperience, not flexibility.",
+          "End with one clear next step, not three options that make the client do the deciding for you."
+        ]},
+        { "type": "h2", "text": "Where AI genuinely helps" },
+        { "type": "p", "text": "Turning your rough notes about a project into that clean structure fast, and drafting a few pricing-tier variations to test which framing lands better with a given client." },
+        { "type": "h2", "text": "Where it hurts you" },
+        { "type": "p", "text": "If a client feels \"this could have been sent to anyone,\" the AI just cost you the job faster than a blank page would have. Always add one detail only visible to someone who actually read their specific brief." },
+        { "type": "h2", "text": "Where to start" },
+        { "type": "p", "text": "The freelancer prompt pack linked below is built around this exact structure — swap in your own project details rather than starting from nothing." }
+      ]
     }
   ]
 }
