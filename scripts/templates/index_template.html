@@ -14,78 +14,136 @@
 <meta property="og:image" content="{{ site_url }}/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {{ schema_json }}
 </script>
 <style>
-  :root { --accent: #7c6fe0; --accent-dark: #4b3f9e; --ink: #1a1a2e; --bg: #fafafa; }
+  :root {
+    --ink: #161d27;
+    --ink-soft: #414a59;
+    --muted: #7c7566;
+    --paper: #f0eee7;
+    --card: #fbfaf6;
+    --rule: #d9d3c2;
+    --gold: #b8892b;
+    --gold-deep: #7a5c17;
+    --serif: 'Fraunces', serif;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
   * { box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); margin: 0; background: var(--paper); color: var(--ink-soft); }
   a { color: inherit; }
-  .topnav { max-width: 1080px; margin: 0 auto; padding: 20px 24px 0; display: flex; justify-content: space-between; align-items: center; }
-  .topnav .logo { font-weight: 800; font-size: 18px; text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 8px; }
-  .topnav .logo svg { display: block; }
-  .topnav nav a { text-decoration: none; color: #555; font-size: 14px; font-weight: 500; margin-left: 22px; }
-  .hero { background: linear-gradient(135deg, var(--ink), var(--accent-dark) 55%, var(--accent)); color: #fff; padding: 60px 24px 90px; text-align: center; margin-top: 20px; border-radius: 28px; max-width: 1080px; margin-left: auto; margin-right: auto; }
-  .hero h1 { font-size: 36px; margin: 0 0 14px; font-weight: 800; letter-spacing: -0.02em; }
-  .hero p.tagline { opacity: 0.92; max-width: 540px; margin: 0 auto 26px; font-size: 16px; line-height: 1.5; }
-  .trustbar { display: inline-flex; gap: 22px; flex-wrap: wrap; justify-content: center; background: rgba(255,255,255,0.12); padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 600; }
-  .trustbar span { white-space: nowrap; }
-  .filters { max-width: 1080px; margin: -46px auto 0; padding: 0 24px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-  .filter-btn { background: #fff; border: 1px solid #eaeaf2; color: #444; font-size: 13px; font-weight: 600; padding: 9px 16px; border-radius: 999px; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.05); transition: all 0.15s; }
-  .filter-btn:hover { border-color: var(--accent); color: var(--accent-dark); }
-  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .grid { max-width: 1080px; margin: 30px auto 0; padding: 0 24px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
-  .pack-card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); text-decoration: none; color: inherit; display: block; transition: transform 0.15s, box-shadow 0.15s; border: 1px solid #f1f1f6; }
-  .pack-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(76,63,158,0.14); }
-  .pack-card .meta-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-  .pack-card .cat { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: #7c6fe0; font-weight: 700; }
-  .pack-card .tool-pill { font-size: 10.5px; font-weight: 700; background: #f1effc; color: var(--accent-dark); padding: 3px 9px; border-radius: 999px; }
-  .pack-card h2 { font-size: 17px; margin: 0 0 8px; line-height: 1.35; }
-  .pack-card p { font-size: 13px; color: #666; line-height: 1.5; margin: 0; }
-  .pack-card .count { margin-top: 14px; font-size: 12px; color: #9a94c9; font-weight: 700; }
-  .section { max-width: 780px; margin: 70px auto; padding: 0 24px; }
-  .section h2 { font-size: 24px; text-align: center; margin-bottom: 30px; }
-  .faq-item { background: #fff; border-radius: 12px; padding: 18px 22px; margin-bottom: 12px; border: 1px solid #f1f1f6; }
-  .faq-item h3 { font-size: 15px; margin: 0 0 6px; }
-  .faq-item p { font-size: 14px; color: #666; margin: 0; line-height: 1.55; }
-  footer { border-top: 1px solid #eee; margin-top: 40px; padding: 30px 24px 40px; text-align: center; color: #999; font-size: 12.5px; }
-  footer .foot-links a { margin: 0 10px; color: #888; text-decoration: none; }
-  footer .foot-links a:hover { color: var(--accent-dark); }
+  h1, h2 { font-family: var(--serif); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  .band-ink { background: var(--ink); color: var(--paper); }
+
+  .topnav { max-width: 1080px; margin: 0 auto; padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .topnav .logo { font-family: var(--serif); font-weight: 600; font-size: 19px; text-decoration: none; color: #fff; display: flex; align-items: center; gap: 9px; }
+  .topnav nav a { text-decoration: none; color: #cfc9b8; font-size: 14px; margin-left: 20px; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+  .topnav nav a:hover { color: #fff; border-color: var(--gold); }
+
+  .hero { max-width: 1080px; margin: 0 auto; padding: 10px 24px 64px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+  .hero-copy h1 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.12; margin: 0 0 18px; font-weight: 600; letter-spacing: -0.01em; }
+  .hero-copy p.tagline { color: #d7d2c3; font-size: 16px; line-height: 1.6; max-width: 46ch; margin: 0 0 22px; }
+  .hero-copy p.meta { font-family: var(--mono); font-size: 13px; color: var(--gold); margin: 0; }
+
+  .hero-cards { position: relative; height: 190px; }
+  .sample-card { position: absolute; width: 280px; background: var(--card); border: 1px solid var(--rule); border-radius: 3px; padding: 16px 18px; box-shadow: 0 14px 30px rgba(0,0,0,0.28); }
+  .sample-card::before { content: ""; position: absolute; top: 0; left: 18px; width: 30px; height: 3px; background: var(--gold); }
+  .sample-card .sc-meta { font-size: 11px; color: var(--muted); margin: 0 0 8px; }
+  .sample-card .sc-meta strong { color: var(--ink); font-weight: 600; }
+  .sample-card p { font-family: var(--mono); font-size: 12.5px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+  .sample-card.card-a { top: 0; left: 0; transform: rotate(-3deg); z-index: 2; }
+  .sample-card.card-b { top: 46px; left: 88px; transform: rotate(3deg); z-index: 1; }
+
+  .filters-wrap { background: var(--paper); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 5; }
+  .filters { max-width: 1080px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: thin; }
+  .filter-btn { flex: 0 0 auto; background: none; border: none; border-bottom: 2px solid transparent; color: var(--muted); font-family: var(--sans); font-size: 14px; font-weight: 500; padding: 14px 12px 12px; cursor: pointer; white-space: nowrap; }
+  .filter-btn:hover { color: var(--ink); }
+  .filter-btn.active { color: var(--ink); border-color: var(--gold); font-weight: 600; }
+
+  .grid { max-width: 1080px; margin: 0 auto; padding: 36px 24px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 18px; }
+  .pack-card { position: relative; background: var(--card); border: 1px solid var(--rule); border-radius: 3px; padding: 22px 22px 20px; text-decoration: none; color: inherit; display: block; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .pack-card::before { content: ""; position: absolute; top: 0; left: 22px; width: 26px; height: 3px; background: var(--gold); }
+  .pack-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(22,29,39,0.12); }
+  .pack-card .meta-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; font-size: 12px; color: var(--muted); }
+  .pack-card .meta-row .cat { color: var(--gold-deep); font-weight: 600; }
+  .pack-card .meta-row .tool { font-style: italic; }
+  .pack-card h2 { font-size: 18px; margin: 0 0 8px; line-height: 1.3; font-weight: 600; }
+  .pack-card p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+  .pack-card .count { margin-top: 16px; font-family: var(--mono); font-size: 11.5px; color: var(--gold-deep); }
+
+  .section { max-width: 700px; margin: 76px auto; padding: 0 24px; }
+  .section h2 { font-size: 24px; margin: 0 0 28px; font-weight: 600; }
+  .faq-item { border-top: 1px solid var(--rule); padding: 20px 0; }
+  .faq-item:last-child { border-bottom: 1px solid var(--rule); }
+  .faq-item h3 { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); margin: 0 0 8px; }
+  .faq-item p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.6; }
+
+  footer { padding: 30px 24px 40px; text-align: left; }
+  footer .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: #a39d8c; }
+  footer a { text-decoration: none; margin-left: 16px; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-cards { display: none; }
+  }
   @media (max-width: 640px) {
-    .hero { border-radius: 18px; padding: 46px 20px 70px; }
-    .hero h1 { font-size: 27px; }
+    .topnav { padding: 18px 20px; }
+    .topnav nav a { margin-left: 14px; font-size: 13px; }
+    .hero { padding: 4px 20px 44px; }
+    .grid { padding: 28px 20px 10px; gap: 14px; }
+    .section { margin: 56px auto; padding: 0 20px; }
+    footer .foot-inner { flex-direction: column; align-items: flex-start; }
+    footer a:first-child { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
   }
 </style>
 </head>
 <body>
-  <div class="topnav">
-    <a class="logo" href="/">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="7" fill="#7c6fe0"/><path d="M7 12.5L10.5 16L17 8" stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      {{ site_name }}
-    </a>
-    <nav>
-      <a href="#packs">All Packs</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-  </div>
-
-  <div class="hero">
-    <h1>Free AI Prompt Packs, Ready in Seconds</h1>
-    <p class="tagline">{{ tagline }}</p>
-    <div class="trustbar">
-      <span>📦 {{ pack_count }} prompt packs</span>
-      <span>💸 100% free</span>
-      <span>🚫 No email required</span>
+  <div class="band-ink">
+    <div class="topnav">
+      <a class="logo" href="/">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="1" y="1" width="22" height="22" rx="2" stroke="#b8892b" stroke-width="1.6"/><path d="M7 8h10M7 12h10M7 16h6" stroke="#b8892b" stroke-width="1.6" stroke-linecap="round"/></svg>
+        {{ site_name }}
+      </a>
+      <nav>
+        <a href="#packs">All packs</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <div class="hero-copy">
+        <h1>A shelf of free prompt packs, ready to copy and use</h1>
+        <p class="tagline">{{ tagline }} No email, no account — open a pack and start pasting.</p>
+        <p class="meta">{{ pack_count }} packs currently on the shelf</p>
+      </div>
+      <div class="hero-cards">
+        {% for s in hero_samples %}
+        <div class="sample-card card-{{ 'a' if loop.index == 1 else 'b' }}">
+          <p class="sc-meta"><strong>{{ s.tool }}</strong> · {{ s.category }}</p>
+          <p>{{ s.prompt[:110] }}{% if s.prompt|length > 110 %}…{% endif %}</p>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 
-  <div class="filters" id="filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    {% for cat in categories %}
-    <button class="filter-btn" data-filter="{{ cat }}">{{ cat }}</button>
-    {% endfor %}
+  <div class="filters-wrap">
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      {% for cat in categories %}
+      <button class="filter-btn" data-filter="{{ cat }}">{{ cat }}</button>
+      {% endfor %}
+    </div>
   </div>
 
   <div class="grid" id="packs">
@@ -93,17 +151,17 @@
     <a class="pack-card" data-category="{{ pack.category }}" href="/packs/{{ pack.slug }}/">
       <div class="meta-row">
         <span class="cat">{{ pack.category }}</span>
-        <span class="tool-pill">{{ pack.tool }}</span>
+        <span class="tool">{{ pack.tool }}</span>
       </div>
       <h2>{{ pack.title }}</h2>
-      <p>{{ pack.description[:110] }}{% if pack.description|length > 110 %}...{% endif %}</p>
-      <div class="count">{{ pack.prompt_count }} prompts →</div>
+      <p>{{ pack.description[:110] }}{% if pack.description|length > 110 %}…{% endif %}</p>
+      <div class="count">{{ pack.prompt_count }} prompts inside</div>
     </a>
     {% endfor %}
   </div>
 
   <div class="section" id="faq">
-    <h2>Frequently Asked Questions</h2>
+    <h2>Frequently asked questions</h2>
     <div class="faq-item">
       <h3>Are these prompt packs really free?</h3>
       <p>Yes — every pack on {{ site_name }} is free to download, no email address or account required. You'll pass through one short ad page on the way to your download, which is how we keep the site running.</p>
@@ -122,11 +180,13 @@
     </div>
   </div>
 
-  <footer>
-    &copy; {{ year }} {{ site_name }} · Free AI prompt packs for ChatGPT, Midjourney &amp; Notion AI
-    <div class="foot-links">
-      <a href="#packs">All Packs</a>
-      <a href="#faq">FAQ</a>
+  <footer class="band-ink">
+    <div class="foot-inner">
+      <span>&copy; {{ year }} {{ site_name }}</span>
+      <span>
+        <a href="#packs">All packs</a>
+        <a href="#faq">FAQ</a>
+      </span>
     </div>
   </footer>
 

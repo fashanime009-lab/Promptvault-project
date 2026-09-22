@@ -14,75 +14,142 @@
 <meta property="og:image" content="https://site-three-sooty-ex9w3gfa05.vercel.app/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "CreativeWork", "name": "25 Midjourney Prompts for Logo & Brand Design", "description": "Explore brand directions fast \u2014 clean, professional logo and brand-mark prompts tuned for Midjourney so you get usable concepts, not abstract art.", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/midjourney-prompts-logo-brand-design/", "isAccessibleForFree": true, "keywords": "Midjourney, AI Art & Design, AI prompts"}
 </script>
 <style>
-  :root { --accent: #7c6fe0; --accent-dark: #4b3f9e; }
+  :root {
+    --ink: #161d27;
+    --ink-soft: #414a59;
+    --muted: #7c7566;
+    --paper: #f0eee7;
+    --card: #fbfaf6;
+    --rule: #d9d3c2;
+    --accent: #b8892b;
+    --accent-dark: #7a5c17;
+    --serif: 'Fraunces', serif;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
   * { box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; margin: 0; background: #fafafa; color: #1a1a2e; }
+  body { font-family: var(--sans); margin: 0; background: var(--paper); color: var(--ink-soft); }
   a { color: inherit; }
-  .topnav { max-width: 700px; margin: 0 auto; padding: 20px 24px 0; }
-  .topnav a.logo { text-decoration: none; color: var(--accent-dark); font-weight: 800; font-size: 18px; }
-  .breadcrumb { max-width: 700px; margin: 10px auto 0; padding: 0 24px; font-size: 12.5px; color: #999; }
-  .breadcrumb a { color: #999; text-decoration: none; }
-  .breadcrumb a:hover { color: var(--accent-dark); }
-  .hero { background: linear-gradient(135deg, var(--accent-dark), var(--accent)); color: #fff; padding: 44px 24px 56px; text-align: center; margin-top: 14px; }
-  .hero .tag { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; opacity: 0.85; margin-bottom: 10px; }
-  .hero h1 { font-size: 30px; max-width: 700px; margin: 0 auto 14px; line-height: 1.25; font-weight: 800; }
-  .hero p { max-width: 560px; margin: 0 auto; opacity: 0.92; line-height: 1.6; font-size: 15px; }
-  .wrap { max-width: 700px; margin: 0 auto; padding: 40px 24px 0; }
-  .card { background: #fff; border-radius: 14px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); text-align: center; margin-top: -40px; }
-  .card p.count { color: #666; margin: 6px 0 18px; font-size: 14px; }
-  .download-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 14px 30px; border-radius: 10px; text-decoration: none; font-size: 16px; transition: transform 0.15s; }
-  .download-btn:hover { transform: translateY(-2px); }
-  .note { font-size: 12px; color: #999; margin-top: 14px; }
-  .preview { margin-top: 36px; }
-  .preview h2 { font-size: 18px; margin-bottom: 14px; }
-  .prompt-preview { background: #fff; border-left: 4px solid var(--accent); border-radius: 6px; padding: 12px 16px; margin-bottom: 8px; font-size: 14px; color: #333; }
-  .more { text-align: center; color: #888; font-size: 13px; padding: 10px; }
-  .mini-faq { margin-top: 48px; }
-  .mini-faq h2 { font-size: 17px; margin-bottom: 14px; }
-  .mini-faq details { background: #fff; border-radius: 10px; padding: 14px 18px; margin-bottom: 8px; border: 1px solid #f1f1f6; }
-  .mini-faq summary { font-size: 14px; font-weight: 600; cursor: pointer; }
-  .mini-faq p { font-size: 13.5px; color: #666; margin: 8px 0 0; line-height: 1.5; }
-  .related { margin-top: 48px; }
-  .related h2 { font-size: 17px; margin-bottom: 14px; }
-  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
-  .related-card { background: #fff; border-radius: 10px; padding: 16px; text-decoration: none; color: inherit; border: 1px solid #f1f1f6; font-size: 13px; font-weight: 600; line-height: 1.4; transition: transform 0.15s; }
-  .related-card:hover { transform: translateY(-2px); }
-  .related-card .rc-cat { display: block; font-size: 10.5px; color: var(--accent-dark); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
-  footer { text-align: center; padding: 40px 24px; color: #999; font-size: 12px; }
-  footer a { color: #999; }
+  h1, h2 { font-family: var(--serif); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .band-ink { background: var(--ink); color: var(--paper); }
+  .topnav { max-width: 680px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .topnav a.logo { text-decoration: none; color: #fff; font-family: var(--serif); font-weight: 600; font-size: 17px; }
+  .crumb { color: #a39d8c; }
+  .crumb a { text-decoration: none; color: #a39d8c; }
+  .crumb a:hover { color: var(--accent); }
+
+  .hero { max-width: 640px; margin: 0 auto; padding: 48px 24px 8px; text-align: center; }
+  .hero .strap { font-family: var(--serif); font-style: italic; color: var(--accent-dark); font-size: 15px; margin: 0 0 12px; }
+  .hero h1 { font-size: clamp(26px, 4.6vw, 36px); line-height: 1.22; margin: 0 0 16px; font-weight: 600; }
+  .hero p.desc { max-width: 52ch; margin: 0 auto; line-height: 1.6; font-size: 15px; }
+
+  .wrap { max-width: 640px; margin: 0 auto; padding: 30px 24px 0; }
+  .card { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 30px; text-align: center; }
+  .card p.count { font-family: var(--mono); color: var(--muted); margin: 0 0 20px; font-size: 13px; }
+  .download-btn { display: inline-block; background: var(--accent); color: var(--ink); font-weight: 600; padding: 15px 32px; border-radius: 3px; text-decoration: none; font-size: 15.5px; transition: transform 0.15s ease, background 0.15s ease; }
+  .download-btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  .note { font-size: 12px; color: var(--muted); margin: 16px 0 0; }
+
+  .preview { margin-top: 52px; }
+  .preview h2 { font-size: 19px; margin: 0 0 6px; font-weight: 600; }
+  .preview .sub { font-size: 13px; color: var(--muted); margin: 0 0 18px; }
+  .prompt-row { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid var(--rule); }
+  .prompt-row:last-of-type { border-bottom: 1px solid var(--rule); }
+  .prompt-num { font-family: var(--mono); font-size: 12px; color: var(--accent-dark); flex: 0 0 22px; padding-top: 2px; }
+  .prompt-text { font-family: var(--mono); font-size: 13.5px; line-height: 1.6; color: var(--ink-soft); flex: 1 1 auto; word-break: break-word; }
+  .copy-btn { flex: 0 0 auto; background: none; border: 1px solid var(--rule); color: var(--muted); font-family: var(--sans); font-size: 11.5px; padding: 5px 10px; border-radius: 3px; cursor: pointer; }
+  .copy-btn:hover { border-color: var(--accent); color: var(--ink); }
+  .more { text-align: center; color: var(--muted); font-size: 13px; padding: 18px 0 0; }
+
+  .mini-faq { margin-top: 52px; }
+  .mini-faq h2 { font-size: 18px; margin: 0 0 16px; font-weight: 600; }
+  .mini-faq details { border-top: 1px solid var(--rule); padding: 16px 0; }
+  .mini-faq details:last-child { border-bottom: 1px solid var(--rule); }
+  .mini-faq summary { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink); cursor: pointer; }
+  .mini-faq p { font-size: 13.5px; color: var(--ink-soft); margin: 10px 0 0; line-height: 1.6; }
+
+  .related { margin-top: 52px; }
+  .related h2 { font-size: 18px; margin: 0 0 14px; font-weight: 600; }
+  .related-list a { display: flex; justify-content: space-between; gap: 16px; text-decoration: none; color: inherit; padding: 13px 0; border-top: 1px solid var(--rule); font-size: 14px; }
+  .related-list a:last-child { border-bottom: 1px solid var(--rule); }
+  .related-list a:hover .rl-title { color: var(--accent-dark); text-decoration: underline; }
+  .rl-title { font-weight: 500; }
+  .rl-cat { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+
+  footer { padding: 28px 24px 44px; text-align: center; font-size: 12.5px; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 560px) {
+    .topnav { padding: 16px 20px; }
+    .hero { padding: 38px 20px 4px; }
+    .wrap { padding: 24px 20px 0; }
+    .card { padding: 24px 18px; }
+    .download-btn { display: block; }
+    .prompt-row { flex-wrap: wrap; }
+    .copy-btn { margin-left: 36px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
 </style>
 </head>
 <body>
-  <div class="topnav">
-    <a class="logo" href="/">PromptVault</a>
+  <div class="band-ink">
+    <div class="topnav">
+      <a class="logo" href="/">PromptVault</a>
+      <div class="crumb"><a href="/">Home</a> / AI Art & Design</div>
+    </div>
   </div>
-  <div class="breadcrumb"><a href="/">Home</a> / AI Art & Design</div>
+
   <div class="hero">
-    <div class="tag">Free Midjourney Prompt Pack</div>
+    <p class="strap">A free Midjourney prompt pack</p>
     <h1>25 Midjourney Prompts for Logo & Brand Design</h1>
-    <p>Explore brand directions fast — clean, professional logo and brand-mark prompts tuned for Midjourney so you get usable concepts, not abstract art.</p>
+    <p class="desc">Explore brand directions fast — clean, professional logo and brand-mark prompts tuned for Midjourney so you get usable concepts, not abstract art.</p>
   </div>
+
   <div class="wrap">
     <div class="card">
-      <p class="count">25 ready-to-use prompts · Free PDF download</p>
-      <a class="download-btn" href="https://site-three-sooty-ex9w3gfa05.vercel.app/packs/midjourney-prompts-logo-brand-design/pack.pdf" rel="nofollow noopener" target="_blank">Download Free PDF →</a>
+      <p class="count">25 ready-to-use prompts · free PDF</p>
+      <a class="download-btn" href="https://site-three-sooty-ex9w3gfa05.vercel.app/packs/midjourney-prompts-logo-brand-design/pack.pdf" rel="nofollow noopener" target="_blank">Download the PDF</a>
       <p class="note">You'll pass through one short ad page on the way to your download — thanks for supporting free content.</p>
     </div>
+
     <div class="preview">
-      <h2>Preview a few prompts from this pack:</h2>
+      <h2>Inside this pack</h2>
+      <p class="sub">A preview of what you'll get — copy any line straight into Midjourney.</p>
       
-      <div class="prompt-preview">minimalist logo for a [industry] brand, flat vector, single color, on white background --ar 1:1</div>
+      <div class="prompt-row">
+        <span class="prompt-num">01</span>
+        <span class="prompt-text">minimalist logo for a [industry] brand, flat vector, single color, on white background --ar 1:1</span>
+        <button class="copy-btn" type="button" onclick="pvCopy(this)">Copy</button>
+      </div>
       
-      <div class="prompt-preview">modern wordmark logo for '[brand name]', bold geometric sans-serif typography --ar 1:1</div>
+      <div class="prompt-row">
+        <span class="prompt-num">02</span>
+        <span class="prompt-text">modern wordmark logo for '[brand name]', bold geometric sans-serif typography --ar 1:1</span>
+        <button class="copy-btn" type="button" onclick="pvCopy(this)">Copy</button>
+      </div>
       
-      <div class="prompt-preview">abstract geometric icon logo representing [concept], flat design, two-tone --ar 1:1</div>
+      <div class="prompt-row">
+        <span class="prompt-num">03</span>
+        <span class="prompt-text">abstract geometric icon logo representing [concept], flat design, two-tone --ar 1:1</span>
+        <button class="copy-btn" type="button" onclick="pvCopy(this)">Copy</button>
+      </div>
       
-      <div class="prompt-preview">vintage badge-style logo for a [industry] brand, monoline illustration, circular --ar 1:1</div>
+      <div class="prompt-row">
+        <span class="prompt-num">04</span>
+        <span class="prompt-text">vintage badge-style logo for a [industry] brand, monoline illustration, circular --ar 1:1</span>
+        <button class="copy-btn" type="button" onclick="pvCopy(this)">Copy</button>
+      </div>
       
       <p class="more">+ 21 more prompts in the full PDF</p>
     </div>
@@ -101,30 +168,48 @@
 
     
     <div class="related">
-      <h2>More free prompt packs</h2>
-      <div class="related-grid">
+      <h2>See also</h2>
+      <div class="related-list">
         
-        <a class="related-card" href="/packs/midjourney-prompts-portrait-photography/">
-          <span class="rc-cat">AI Art & Design</span>
-          25 Midjourney Prompts for Stunning Portrait Photography
+        <a href="/packs/midjourney-prompts-portrait-photography/">
+          <span class="rl-title">25 Midjourney Prompts for Stunning Portrait Photography</span>
+          <span class="rl-cat">AI Art & Design</span>
         </a>
         
-        <a class="related-card" href="/packs/chatgpt-prompts-parents-family-organization/">
-          <span class="rc-cat">Family & Home</span>
-          30 ChatGPT Prompts for Parents & Family Organization
+        <a href="/packs/chatgpt-prompts-travel-planning/">
+          <span class="rl-title">30 ChatGPT Prompts for Travel Planning</span>
+          <span class="rl-cat">Travel</span>
         </a>
         
-        <a class="related-card" href="/packs/notion-ai-prompts-productivity/">
-          <span class="rc-cat">Productivity</span>
-          25 Notion AI Prompts for Productivity & Organization
+        <a href="/packs/chatgpt-prompts-parents-family-organization/">
+          <span class="rl-title">30 ChatGPT Prompts for Parents & Family Organization</span>
+          <span class="rl-cat">Family & Home</span>
         </a>
         
       </div>
     </div>
     
   </div>
+
   <footer>
     &copy; 2026 PromptVault · <a href="/">More free prompt packs</a>
   </footer>
+
+  <script>
+    function pvCopy(btn) {
+      var row = btn.closest('.prompt-row');
+      var text = row.querySelector('.prompt-text').innerText;
+      var reset = function() { btn.textContent = 'Copy'; };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = 'Copied';
+          setTimeout(reset, 1500);
+        }).catch(function() {
+          btn.textContent = 'Select & copy';
+          setTimeout(reset, 1500);
+        });
+      }
+    }
+  </script>
 </body>
 </html>

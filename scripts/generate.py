@@ -28,8 +28,9 @@ SITE_DIR = ROOT / "site"
 TEMPLATES_DIR = Path(__file__).resolve().parent / "templates"
 LINKS_CACHE = CONTENT_DIR / "shrinkearn_links.json"
 
-ACCENT = "#7c6fe0"
-ACCENT_DARK = "#4b3f9e"
+ACCENT = "#b8892b"
+ACCENT_DARK = "#7a5c17"
+INK = "#161d27"
 SITE_URL = os.environ.get("SITE_URL", "https://your-site.vercel.app").rstrip("/")
 PROMPTS_PER_PDF_PAGE = 14
 PREVIEW_COUNT = 4
@@ -117,6 +118,21 @@ def render_pdf(pack, site_name, out_path, browser):
     page.close()
 
 
+def pick_hero_samples(packs):
+    """Pick up to 2 real prompts (from packs with different tools, for variety)
+    to show as sample cards in the homepage hero."""
+    samples = []
+    tools_seen = set()
+    for p in packs:
+        if p["tool"] in tools_seen:
+            continue
+        samples.append({"category": p["category"], "tool": p["tool"], "prompt": p["prompts"][0]})
+        tools_seen.add(p["tool"])
+        if len(samples) == 2:
+            break
+    return samples
+
+
 def pick_related(pack, all_packs):
     others = [p for p in all_packs if p["slug"] != pack["slug"]]
     same_cat = [p for p in others if p["category"] == pack["category"]]
@@ -186,6 +202,7 @@ def render_index(data, out_path):
         packs=packs,
         categories=categories,
         pack_count=len(packs),
+        hero_samples=pick_hero_samples(packs),
         site_url=SITE_URL,
         schema_json=json.dumps(schema),
         year=datetime.now().year,
@@ -195,19 +212,23 @@ def render_index(data, out_path):
 
 def render_favicon(out_path):
     svg = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-<rect width="24" height="24" rx="7" fill="#7c6fe0"/>
-<path d="M7 12.5L10.5 16L17 8" stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect width="24" height="24" rx="5" fill="#161d27"/>
+<path d="M6 7.5h12M6 12h12M6 16.5h7" stroke="#b8892b" stroke-width="2" stroke-linecap="round"/>
 </svg>"""
     out_path.write_text(svg)
 
 
 def render_og_image(site_name, tagline, out_path, browser):
-    html = f"""<!DOCTYPE html><html><head><style>
-    body {{ margin:0; width:1200px; height:630px; display:flex; flex-direction:column; justify-content:center; align-items:center;
-      background: linear-gradient(135deg, #1a1a2e, #4b3f9e 55%, #7c6fe0); font-family: Arial, sans-serif; color:#fff; text-align:center; }}
-    h1 {{ font-size:76px; margin:0 0 20px; font-weight:800; }}
-    p {{ font-size:28px; opacity:0.9; max-width:800px; margin:0; }}
+    html = f"""<!DOCTYPE html><html><head>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=IBM+Plex+Sans:wght@400&display=swap" rel="stylesheet">
+    <style>
+    body {{ margin:0; width:1200px; height:630px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:0 90px;
+      background: #161d27; font-family: 'IBM Plex Sans', Arial, sans-serif; color:#f0eee7; box-sizing:border-box; }}
+    .bar {{ width:64px; height:5px; background:#b8892b; margin-bottom:26px; }}
+    h1 {{ font-family:'Fraunces', serif; font-size:66px; margin:0 0 20px; font-weight:600; color:#fff; }}
+    p {{ font-size:26px; opacity:0.85; max-width:820px; margin:0; line-height:1.5; }}
     </style></head><body>
+    <div class="bar"></div>
     <h1>{site_name}</h1>
     <p>{tagline}</p>
     </body></html>"""
