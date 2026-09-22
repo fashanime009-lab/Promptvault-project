@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://site-three-sooty-ex9w3gfa05.vercel.app/sitemap.xml

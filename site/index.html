@@ -3,63 +3,270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PromptVault — Free AI Prompt Packs</title>
-<meta name="description" content="Free, ready-to-use AI prompt packs for ChatGPT, Midjourney & more.">
+<title>PromptVault — Free AI Prompt Packs for ChatGPT, Midjourney & Notion AI</title>
+<meta name="description" content="Free, ready-to-use AI prompt packs for ChatGPT, Midjourney & more. 11 free, ready-to-use prompt packs — no email, no signup, just download and go.">
+<link rel="canonical" href="https://site-three-sooty-ex9w3gfa05.vercel.app/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PromptVault — Free AI Prompt Packs">
+<meta property="og:description" content="Free, ready-to-use AI prompt packs for ChatGPT, Midjourney & more.">
+<meta property="og:url" content="https://site-three-sooty-ex9w3gfa05.vercel.app/">
+<meta property="og:image" content="https://site-three-sooty-ex9w3gfa05.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "CollectionPage", "name": "PromptVault", "description": "Free, ready-to-use AI prompt packs for ChatGPT, Midjourney & more.", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/", "hasPart": [{"@type": "CreativeWork", "name": "30 ChatGPT Prompts for Small Business Marketing", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-small-business-marketing/"}, {"@type": "CreativeWork", "name": "25 Midjourney Prompts for Stunning Portrait Photography", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/midjourney-prompts-portrait-photography/"}, {"@type": "CreativeWork", "name": "30 ChatGPT Prompts to Study Smarter", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-study-smarter/"}, {"@type": "CreativeWork", "name": "30 AI Prompts for Content Creators & Social Media", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/ai-prompts-content-creators-social-media/"}, {"@type": "CreativeWork", "name": "25 ChatGPT Prompts for Resume, Cover Letters & Job Hunting", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-resume-job-hunting/"}, {"@type": "CreativeWork", "name": "25 Notion AI Prompts for Productivity & Organization", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/notion-ai-prompts-productivity/"}, {"@type": "CreativeWork", "name": "30 ChatGPT Prompts for Travel Planning", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-travel-planning/"}, {"@type": "CreativeWork", "name": "25 Midjourney Prompts for Logo & Brand Design", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/midjourney-prompts-logo-brand-design/"}, {"@type": "CreativeWork", "name": "30 ChatGPT Prompts for Meal Planning & Recipes", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-meal-planning-recipes/"}, {"@type": "CreativeWork", "name": "25 ChatGPT Prompts for Freelancers & Client Proposals", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-freelancers-proposals/"}, {"@type": "CreativeWork", "name": "30 ChatGPT Prompts for Parents & Family Organization", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-parents-family-organization/"}]}
+</script>
 <style>
+  :root { --accent: #7c6fe0; --accent-dark: #4b3f9e; --ink: #1a1a2e; --bg: #fafafa; }
   * { box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; margin: 0; background: #fafafa; color: #1a1a2e; }
-  .hero { background: linear-gradient(135deg, #1a1a2e, #4b3f9e); color: #fff; padding: 64px 24px; text-align: center; }
-  .hero h1 { font-size: 34px; margin: 0 0 12px; font-weight: 800; }
-  .hero p { opacity: 0.9; max-width: 520px; margin: 0 auto; }
-  .grid { max-width: 960px; margin: -30px auto 0; padding: 0 24px 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-  .pack-card { background: #fff; border-radius: 14px; padding: 22px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); text-decoration: none; color: inherit; display: block; transition: transform 0.15s; }
-  .pack-card:hover { transform: translateY(-3px); }
-  .pack-card .cat { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #7c6fe0; font-weight: 700; }
-  .pack-card h2 { font-size: 17px; margin: 8px 0; line-height: 1.35; }
+  body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+  a { color: inherit; }
+  .topnav { max-width: 1080px; margin: 0 auto; padding: 20px 24px 0; display: flex; justify-content: space-between; align-items: center; }
+  .topnav .logo { font-weight: 800; font-size: 18px; text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+  .topnav .logo svg { display: block; }
+  .topnav nav a { text-decoration: none; color: #555; font-size: 14px; font-weight: 500; margin-left: 22px; }
+  .hero { background: linear-gradient(135deg, var(--ink), var(--accent-dark) 55%, var(--accent)); color: #fff; padding: 60px 24px 90px; text-align: center; margin-top: 20px; border-radius: 28px; max-width: 1080px; margin-left: auto; margin-right: auto; }
+  .hero h1 { font-size: 36px; margin: 0 0 14px; font-weight: 800; letter-spacing: -0.02em; }
+  .hero p.tagline { opacity: 0.92; max-width: 540px; margin: 0 auto 26px; font-size: 16px; line-height: 1.5; }
+  .trustbar { display: inline-flex; gap: 22px; flex-wrap: wrap; justify-content: center; background: rgba(255,255,255,0.12); padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .trustbar span { white-space: nowrap; }
+  .filters { max-width: 1080px; margin: -46px auto 0; padding: 0 24px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .filter-btn { background: #fff; border: 1px solid #eaeaf2; color: #444; font-size: 13px; font-weight: 600; padding: 9px 16px; border-radius: 999px; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.05); transition: all 0.15s; }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent-dark); }
+  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .grid { max-width: 1080px; margin: 30px auto 0; padding: 0 24px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
+  .pack-card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); text-decoration: none; color: inherit; display: block; transition: transform 0.15s, box-shadow 0.15s; border: 1px solid #f1f1f6; }
+  .pack-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(76,63,158,0.14); }
+  .pack-card .meta-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .pack-card .cat { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: #7c6fe0; font-weight: 700; }
+  .pack-card .tool-pill { font-size: 10.5px; font-weight: 700; background: #f1effc; color: var(--accent-dark); padding: 3px 9px; border-radius: 999px; }
+  .pack-card h2 { font-size: 17px; margin: 0 0 8px; line-height: 1.35; }
   .pack-card p { font-size: 13px; color: #666; line-height: 1.5; margin: 0; }
-  footer { text-align: center; padding: 30px; color: #999; font-size: 12px; }
+  .pack-card .count { margin-top: 14px; font-size: 12px; color: #9a94c9; font-weight: 700; }
+  .section { max-width: 780px; margin: 70px auto; padding: 0 24px; }
+  .section h2 { font-size: 24px; text-align: center; margin-bottom: 30px; }
+  .faq-item { background: #fff; border-radius: 12px; padding: 18px 22px; margin-bottom: 12px; border: 1px solid #f1f1f6; }
+  .faq-item h3 { font-size: 15px; margin: 0 0 6px; }
+  .faq-item p { font-size: 14px; color: #666; margin: 0; line-height: 1.55; }
+  footer { border-top: 1px solid #eee; margin-top: 40px; padding: 30px 24px 40px; text-align: center; color: #999; font-size: 12.5px; }
+  footer .foot-links a { margin: 0 10px; color: #888; text-decoration: none; }
+  footer .foot-links a:hover { color: var(--accent-dark); }
+  @media (max-width: 640px) {
+    .hero { border-radius: 18px; padding: 46px 20px 70px; }
+    .hero h1 { font-size: 27px; }
+  }
 </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>PromptVault</h1>
-    <p>Free, ready-to-use AI prompt packs for ChatGPT, Midjourney & more.</p>
+  <div class="topnav">
+    <a class="logo" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="7" fill="#7c6fe0"/><path d="M7 12.5L10.5 16L17 8" stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      PromptVault
+    </a>
+    <nav>
+      <a href="#packs">All Packs</a>
+      <a href="#faq">FAQ</a>
+    </nav>
   </div>
-  <div class="grid">
+
+  <div class="hero">
+    <h1>Free AI Prompt Packs, Ready in Seconds</h1>
+    <p class="tagline">Free, ready-to-use AI prompt packs for ChatGPT, Midjourney & more.</p>
+    <div class="trustbar">
+      <span>📦 11 prompt packs</span>
+      <span>💸 100% free</span>
+      <span>🚫 No email required</span>
+    </div>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
     
-    <a class="pack-card" href="/packs/chatgpt-prompts-small-business-marketing/">
-      <div class="cat">Business & Marketing</div>
+    <button class="filter-btn" data-filter="AI Art & Design">AI Art & Design</button>
+    
+    <button class="filter-btn" data-filter="Business & Marketing">Business & Marketing</button>
+    
+    <button class="filter-btn" data-filter="Career">Career</button>
+    
+    <button class="filter-btn" data-filter="Content Creation">Content Creation</button>
+    
+    <button class="filter-btn" data-filter="Family & Home">Family & Home</button>
+    
+    <button class="filter-btn" data-filter="Food & Home">Food & Home</button>
+    
+    <button class="filter-btn" data-filter="Freelance & Business">Freelance & Business</button>
+    
+    <button class="filter-btn" data-filter="Productivity">Productivity</button>
+    
+    <button class="filter-btn" data-filter="Students & Learning">Students & Learning</button>
+    
+    <button class="filter-btn" data-filter="Travel">Travel</button>
+    
+  </div>
+
+  <div class="grid" id="packs">
+    
+    <a class="pack-card" data-category="Business & Marketing" href="/packs/chatgpt-prompts-small-business-marketing/">
+      <div class="meta-row">
+        <span class="cat">Business & Marketing</span>
+        <span class="tool-pill">ChatGPT</span>
+      </div>
       <h2>30 ChatGPT Prompts for Small Business Marketing</h2>
       <p>A ready-to-use prompt pack for small business owners who want professional marketing copy, campaign ideas, and...</p>
+      <div class="count">30 prompts →</div>
     </a>
     
-    <a class="pack-card" href="/packs/midjourney-prompts-portrait-photography/">
-      <div class="cat">AI Art & Design</div>
+    <a class="pack-card" data-category="AI Art & Design" href="/packs/midjourney-prompts-portrait-photography/">
+      <div class="meta-row">
+        <span class="cat">AI Art & Design</span>
+        <span class="tool-pill">Midjourney</span>
+      </div>
       <h2>25 Midjourney Prompts for Stunning Portrait Photography</h2>
       <p>Cinematic, editorial, and fine-art portrait prompts for Midjourney — tuned for lighting, lens, and mood so you...</p>
+      <div class="count">25 prompts →</div>
     </a>
     
-    <a class="pack-card" href="/packs/chatgpt-prompts-study-smarter/">
-      <div class="cat">Students & Learning</div>
+    <a class="pack-card" data-category="Students & Learning" href="/packs/chatgpt-prompts-study-smarter/">
+      <div class="meta-row">
+        <span class="cat">Students & Learning</span>
+        <span class="tool-pill">ChatGPT</span>
+      </div>
       <h2>30 ChatGPT Prompts to Study Smarter</h2>
       <p>A student-friendly prompt pack for turning ChatGPT into a personal tutor, study planner, and exam-prep partner...</p>
+      <div class="count">30 prompts →</div>
     </a>
     
-    <a class="pack-card" href="/packs/ai-prompts-content-creators-social-media/">
-      <div class="cat">Content Creation</div>
+    <a class="pack-card" data-category="Content Creation" href="/packs/ai-prompts-content-creators-social-media/">
+      <div class="meta-row">
+        <span class="cat">Content Creation</span>
+        <span class="tool-pill">ChatGPT</span>
+      </div>
       <h2>30 AI Prompts for Content Creators & Social Media</h2>
       <p>Never run out of content ideas again. A full pack of prompts for scripting, captions, hooks, and growth strate...</p>
+      <div class="count">30 prompts →</div>
     </a>
     
-    <a class="pack-card" href="/packs/chatgpt-prompts-resume-job-hunting/">
-      <div class="cat">Career</div>
+    <a class="pack-card" data-category="Career" href="/packs/chatgpt-prompts-resume-job-hunting/">
+      <div class="meta-row">
+        <span class="cat">Career</span>
+        <span class="tool-pill">ChatGPT</span>
+      </div>
       <h2>25 ChatGPT Prompts for Resume, Cover Letters & Job Hunting</h2>
       <p>A complete job-search prompt pack — from resume bullet points to interview answers — to help you apply with co...</p>
+      <div class="count">25 prompts →</div>
+    </a>
+    
+    <a class="pack-card" data-category="Productivity" href="/packs/notion-ai-prompts-productivity/">
+      <div class="meta-row">
+        <span class="cat">Productivity</span>
+        <span class="tool-pill">Notion AI</span>
+      </div>
+      <h2>25 Notion AI Prompts for Productivity & Organization</h2>
+      <p>Turn Notion AI into your personal operations manager — prompts for building trackers, cleaning up notes, and r...</p>
+      <div class="count">25 prompts →</div>
+    </a>
+    
+    <a class="pack-card" data-category="Travel" href="/packs/chatgpt-prompts-travel-planning/">
+      <div class="meta-row">
+        <span class="cat">Travel</span>
+        <span class="tool-pill">ChatGPT</span>
+      </div>
+      <h2>30 ChatGPT Prompts for Travel Planning</h2>
+      <p>Plan an entire trip without the 20 open browser tabs — itineraries, packing lists, budget breakdowns, and loca...</p>
+      <div class="count">30 prompts →</div>
+    </a>
+    
+    <a class="pack-card" data-category="AI Art & Design" href="/packs/midjourney-prompts-logo-brand-design/">
+      <div class="meta-row">
+        <span class="cat">AI Art & Design</span>
+        <span class="tool-pill">Midjourney</span>
+      </div>
+      <h2>25 Midjourney Prompts for Logo & Brand Design</h2>
+      <p>Explore brand directions fast — clean, professional logo and brand-mark prompts tuned for Midjourney so you ge...</p>
+      <div class="count">25 prompts →</div>
+    </a>
+    
+    <a class="pack-card" data-category="Food & Home" href="/packs/chatgpt-prompts-meal-planning-recipes/">
+      <div class="meta-row">
+        <span class="cat">Food & Home</span>
+        <span class="tool-pill">ChatGPT</span>
+      </div>
+      <h2>30 ChatGPT Prompts for Meal Planning & Recipes</h2>
+      <p>Stop staring into the fridge wondering what to make. A full pack for weekly meal plans, recipe remixes, and gr...</p>
+      <div class="count">30 prompts →</div>
+    </a>
+    
+    <a class="pack-card" data-category="Freelance & Business" href="/packs/chatgpt-prompts-freelancers-proposals/">
+      <div class="meta-row">
+        <span class="cat">Freelance & Business</span>
+        <span class="tool-pill">ChatGPT</span>
+      </div>
+      <h2>25 ChatGPT Prompts for Freelancers & Client Proposals</h2>
+      <p>From pitch to invoice — prompts that help freelancers write proposals, set boundaries, and sound confident in ...</p>
+      <div class="count">25 prompts →</div>
+    </a>
+    
+    <a class="pack-card" data-category="Family & Home" href="/packs/chatgpt-prompts-parents-family-organization/">
+      <div class="meta-row">
+        <span class="cat">Family & Home</span>
+        <span class="tool-pill">ChatGPT</span>
+      </div>
+      <h2>30 ChatGPT Prompts for Parents & Family Organization</h2>
+      <p>From chore charts to screen-time scripts — a prompt pack for parents who want a calmer, more organized househo...</p>
+      <div class="count">30 prompts →</div>
     </a>
     
   </div>
-  <footer>&copy; 2026 PromptVault</footer>
+
+  <div class="section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Are these prompt packs really free?</h3>
+      <p>Yes — every pack on PromptVault is free to download, no email address or account required. You'll pass through one short ad page on the way to your download, which is how we keep the site running.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need a paid ChatGPT or Midjourney subscription to use these?</h3>
+      <p>No. Most prompts work fine on free tiers — just copy the prompt, paste it into the tool, and replace anything in [brackets] with your own details.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use these prompts for client or commercial work?</h3>
+      <p>Yes, the prompts themselves are free to use however you like — for yourself, your business, or your clients.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How often do you add new packs?</h3>
+      <p>New prompt packs are added regularly based on what's actually useful and trending — check back or bookmark this page.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 PromptVault · Free AI prompt packs for ChatGPT, Midjourney &amp; Notion AI
+    <div class="foot-links">
+      <a href="#packs">All Packs</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var buttons = document.querySelectorAll('.filter-btn');
+      var cards = document.querySelectorAll('.pack-card');
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          buttons.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.getAttribute('data-filter');
+          cards.forEach(function(card) {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -5,19 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>30 ChatGPT Prompts for Small Business Marketing | PromptVault</title>
 <meta name="description" content="A ready-to-use prompt pack for small business owners who want professional marketing copy, campaign ideas, and social content without hiring an agency. Just copy, paste, and customize.">
+<link rel="canonical" href="https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-small-business-marketing/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="30 ChatGPT Prompts for Small Business Marketing">
+<meta property="og:description" content="A ready-to-use prompt pack for small business owners who want professional marketing copy, campaign ideas, and social content without hiring an agency. Just copy, paste, and customize.">
+<meta property="og:url" content="https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-small-business-marketing/">
+<meta property="og:image" content="https://site-three-sooty-ex9w3gfa05.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "CreativeWork", "name": "30 ChatGPT Prompts for Small Business Marketing", "description": "A ready-to-use prompt pack for small business owners who want professional marketing copy, campaign ideas, and social content without hiring an agency. Just copy, paste, and customize.", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-small-business-marketing/", "isAccessibleForFree": true, "keywords": "ChatGPT, Business & Marketing, AI prompts"}
+</script>
 <style>
   :root { --accent: #7c6fe0; --accent-dark: #4b3f9e; }
   * { box-sizing: border-box; }
   body { font-family: 'Inter', sans-serif; margin: 0; background: #fafafa; color: #1a1a2e; }
-  .nav { padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; max-width: 900px; margin: 0 auto; }
-  .nav a { text-decoration: none; color: var(--accent-dark); font-weight: 800; font-size: 18px; }
-  .hero { background: linear-gradient(135deg, var(--accent-dark), var(--accent)); color: #fff; padding: 56px 24px; text-align: center; }
+  a { color: inherit; }
+  .topnav { max-width: 700px; margin: 0 auto; padding: 20px 24px 0; }
+  .topnav a.logo { text-decoration: none; color: var(--accent-dark); font-weight: 800; font-size: 18px; }
+  .breadcrumb { max-width: 700px; margin: 10px auto 0; padding: 0 24px; font-size: 12.5px; color: #999; }
+  .breadcrumb a { color: #999; text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent-dark); }
+  .hero { background: linear-gradient(135deg, var(--accent-dark), var(--accent)); color: #fff; padding: 44px 24px 56px; text-align: center; margin-top: 14px; }
   .hero .tag { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; opacity: 0.85; margin-bottom: 10px; }
-  .hero h1 { font-size: 32px; max-width: 700px; margin: 0 auto 14px; line-height: 1.25; font-weight: 800; }
-  .hero p { max-width: 560px; margin: 0 auto; opacity: 0.92; line-height: 1.6; }
-  .wrap { max-width: 700px; margin: 0 auto; padding: 40px 24px; }
+  .hero h1 { font-size: 30px; max-width: 700px; margin: 0 auto 14px; line-height: 1.25; font-weight: 800; }
+  .hero p { max-width: 560px; margin: 0 auto; opacity: 0.92; line-height: 1.6; font-size: 15px; }
+  .wrap { max-width: 700px; margin: 0 auto; padding: 40px 24px 0; }
   .card { background: #fff; border-radius: 14px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); text-align: center; margin-top: -40px; }
   .card p.count { color: #666; margin: 6px 0 18px; font-size: 14px; }
   .download-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 14px 30px; border-radius: 10px; text-decoration: none; font-size: 16px; transition: transform 0.15s; }
@@ -27,14 +42,26 @@
   .preview h2 { font-size: 18px; margin-bottom: 14px; }
   .prompt-preview { background: #fff; border-left: 4px solid var(--accent); border-radius: 6px; padding: 12px 16px; margin-bottom: 8px; font-size: 14px; color: #333; }
   .more { text-align: center; color: #888; font-size: 13px; padding: 10px; }
-  footer { text-align: center; padding: 30px; color: #999; font-size: 12px; }
+  .mini-faq { margin-top: 48px; }
+  .mini-faq h2 { font-size: 17px; margin-bottom: 14px; }
+  .mini-faq details { background: #fff; border-radius: 10px; padding: 14px 18px; margin-bottom: 8px; border: 1px solid #f1f1f6; }
+  .mini-faq summary { font-size: 14px; font-weight: 600; cursor: pointer; }
+  .mini-faq p { font-size: 13.5px; color: #666; margin: 8px 0 0; line-height: 1.5; }
+  .related { margin-top: 48px; }
+  .related h2 { font-size: 17px; margin-bottom: 14px; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .related-card { background: #fff; border-radius: 10px; padding: 16px; text-decoration: none; color: inherit; border: 1px solid #f1f1f6; font-size: 13px; font-weight: 600; line-height: 1.4; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-cat { display: block; font-size: 10.5px; color: var(--accent-dark); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+  footer { text-align: center; padding: 40px 24px; color: #999; font-size: 12px; }
   footer a { color: #999; }
 </style>
 </head>
 <body>
-  <div class="nav">
-    <a href="/">PromptVault</a>
+  <div class="topnav">
+    <a class="logo" href="/">PromptVault</a>
   </div>
+  <div class="breadcrumb"><a href="/">Home</a> / Business & Marketing</div>
   <div class="hero">
     <div class="tag">Free ChatGPT Prompt Pack</div>
     <h1>30 ChatGPT Prompts for Small Business Marketing</h1>
@@ -59,6 +86,42 @@
       
       <p class="more">+ 26 more prompts in the full PDF</p>
     </div>
+
+    <div class="mini-faq">
+      <h2>Quick questions</h2>
+      <details>
+        <summary>How do I use these prompts?</summary>
+        <p>Copy any prompt, paste it into ChatGPT, and replace anything in [brackets] with your own specifics before sending it.</p>
+      </details>
+      <details>
+        <summary>Is this really free?</summary>
+        <p>Yes — no email, no account. You'll see one ad page on the way to the download, which is what funds free content like this.</p>
+      </details>
+    </div>
+
+    
+    <div class="related">
+      <h2>More free prompt packs</h2>
+      <div class="related-grid">
+        
+        <a class="related-card" href="/packs/chatgpt-prompts-freelancers-proposals/">
+          <span class="rc-cat">Freelance & Business</span>
+          25 ChatGPT Prompts for Freelancers & Client Proposals
+        </a>
+        
+        <a class="related-card" href="/packs/midjourney-prompts-portrait-photography/">
+          <span class="rc-cat">AI Art & Design</span>
+          25 Midjourney Prompts for Stunning Portrait Photography
+        </a>
+        
+        <a class="related-card" href="/packs/chatgpt-prompts-parents-family-organization/">
+          <span class="rc-cat">Family & Home</span>
+          30 ChatGPT Prompts for Parents & Family Organization
+        </a>
+        
+      </div>
+    </div>
+    
   </div>
   <footer>
     &copy; 2026 PromptVault · <a href="/">More free prompt packs</a>

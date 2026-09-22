@@ -3,39 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ site_name }} — Free AI Prompt Packs</title>
-<meta name="description" content="{{ tagline }}">
+<title>{{ site_name }} — Free AI Prompt Packs for ChatGPT, Midjourney & Notion AI</title>
+<meta name="description" content="{{ tagline }} {{ pack_count }} free, ready-to-use prompt packs — no email, no signup, just download and go.">
+<link rel="canonical" href="{{ site_url }}/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ site_name }} — Free AI Prompt Packs">
+<meta property="og:description" content="{{ tagline }}">
+<meta property="og:url" content="{{ site_url }}/">
+<meta property="og:image" content="{{ site_url }}/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{{ schema_json }}
+</script>
 <style>
+  :root { --accent: #7c6fe0; --accent-dark: #4b3f9e; --ink: #1a1a2e; --bg: #fafafa; }
   * { box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; margin: 0; background: #fafafa; color: #1a1a2e; }
-  .hero { background: linear-gradient(135deg, #1a1a2e, #4b3f9e); color: #fff; padding: 64px 24px; text-align: center; }
-  .hero h1 { font-size: 34px; margin: 0 0 12px; font-weight: 800; }
-  .hero p { opacity: 0.9; max-width: 520px; margin: 0 auto; }
-  .grid { max-width: 960px; margin: -30px auto 0; padding: 0 24px 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-  .pack-card { background: #fff; border-radius: 14px; padding: 22px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); text-decoration: none; color: inherit; display: block; transition: transform 0.15s; }
-  .pack-card:hover { transform: translateY(-3px); }
-  .pack-card .cat { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #7c6fe0; font-weight: 700; }
-  .pack-card h2 { font-size: 17px; margin: 8px 0; line-height: 1.35; }
+  body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+  a { color: inherit; }
+  .topnav { max-width: 1080px; margin: 0 auto; padding: 20px 24px 0; display: flex; justify-content: space-between; align-items: center; }
+  .topnav .logo { font-weight: 800; font-size: 18px; text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+  .topnav .logo svg { display: block; }
+  .topnav nav a { text-decoration: none; color: #555; font-size: 14px; font-weight: 500; margin-left: 22px; }
+  .hero { background: linear-gradient(135deg, var(--ink), var(--accent-dark) 55%, var(--accent)); color: #fff; padding: 60px 24px 90px; text-align: center; margin-top: 20px; border-radius: 28px; max-width: 1080px; margin-left: auto; margin-right: auto; }
+  .hero h1 { font-size: 36px; margin: 0 0 14px; font-weight: 800; letter-spacing: -0.02em; }
+  .hero p.tagline { opacity: 0.92; max-width: 540px; margin: 0 auto 26px; font-size: 16px; line-height: 1.5; }
+  .trustbar { display: inline-flex; gap: 22px; flex-wrap: wrap; justify-content: center; background: rgba(255,255,255,0.12); padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .trustbar span { white-space: nowrap; }
+  .filters { max-width: 1080px; margin: -46px auto 0; padding: 0 24px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .filter-btn { background: #fff; border: 1px solid #eaeaf2; color: #444; font-size: 13px; font-weight: 600; padding: 9px 16px; border-radius: 999px; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.05); transition: all 0.15s; }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent-dark); }
+  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .grid { max-width: 1080px; margin: 30px auto 0; padding: 0 24px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
+  .pack-card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); text-decoration: none; color: inherit; display: block; transition: transform 0.15s, box-shadow 0.15s; border: 1px solid #f1f1f6; }
+  .pack-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(76,63,158,0.14); }
+  .pack-card .meta-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .pack-card .cat { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: #7c6fe0; font-weight: 700; }
+  .pack-card .tool-pill { font-size: 10.5px; font-weight: 700; background: #f1effc; color: var(--accent-dark); padding: 3px 9px; border-radius: 999px; }
+  .pack-card h2 { font-size: 17px; margin: 0 0 8px; line-height: 1.35; }
   .pack-card p { font-size: 13px; color: #666; line-height: 1.5; margin: 0; }
-  footer { text-align: center; padding: 30px; color: #999; font-size: 12px; }
+  .pack-card .count { margin-top: 14px; font-size: 12px; color: #9a94c9; font-weight: 700; }
+  .section { max-width: 780px; margin: 70px auto; padding: 0 24px; }
+  .section h2 { font-size: 24px; text-align: center; margin-bottom: 30px; }
+  .faq-item { background: #fff; border-radius: 12px; padding: 18px 22px; margin-bottom: 12px; border: 1px solid #f1f1f6; }
+  .faq-item h3 { font-size: 15px; margin: 0 0 6px; }
+  .faq-item p { font-size: 14px; color: #666; margin: 0; line-height: 1.55; }
+  footer { border-top: 1px solid #eee; margin-top: 40px; padding: 30px 24px 40px; text-align: center; color: #999; font-size: 12.5px; }
+  footer .foot-links a { margin: 0 10px; color: #888; text-decoration: none; }
+  footer .foot-links a:hover { color: var(--accent-dark); }
+  @media (max-width: 640px) {
+    .hero { border-radius: 18px; padding: 46px 20px 70px; }
+    .hero h1 { font-size: 27px; }
+  }
 </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>{{ site_name }}</h1>
-    <p>{{ tagline }}</p>
+  <div class="topnav">
+    <a class="logo" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="7" fill="#7c6fe0"/><path d="M7 12.5L10.5 16L17 8" stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      {{ site_name }}
+    </a>
+    <nav>
+      <a href="#packs">All Packs</a>
+      <a href="#faq">FAQ</a>
+    </nav>
   </div>
-  <div class="grid">
+
+  <div class="hero">
+    <h1>Free AI Prompt Packs, Ready in Seconds</h1>
+    <p class="tagline">{{ tagline }}</p>
+    <div class="trustbar">
+      <span>📦 {{ pack_count }} prompt packs</span>
+      <span>💸 100% free</span>
+      <span>🚫 No email required</span>
+    </div>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    {% for cat in categories %}
+    <button class="filter-btn" data-filter="{{ cat }}">{{ cat }}</button>
+    {% endfor %}
+  </div>
+
+  <div class="grid" id="packs">
     {% for pack in packs %}
-    <a class="pack-card" href="/packs/{{ pack.slug }}/">
-      <div class="cat">{{ pack.category }}</div>
+    <a class="pack-card" data-category="{{ pack.category }}" href="/packs/{{ pack.slug }}/">
+      <div class="meta-row">
+        <span class="cat">{{ pack.category }}</span>
+        <span class="tool-pill">{{ pack.tool }}</span>
+      </div>
       <h2>{{ pack.title }}</h2>
       <p>{{ pack.description[:110] }}{% if pack.description|length > 110 %}...{% endif %}</p>
+      <div class="count">{{ pack.prompt_count }} prompts →</div>
     </a>
     {% endfor %}
   </div>
-  <footer>&copy; {{ year }} {{ site_name }}</footer>
+
+  <div class="section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Are these prompt packs really free?</h3>
+      <p>Yes — every pack on {{ site_name }} is free to download, no email address or account required. You'll pass through one short ad page on the way to your download, which is how we keep the site running.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need a paid ChatGPT or Midjourney subscription to use these?</h3>
+      <p>No. Most prompts work fine on free tiers — just copy the prompt, paste it into the tool, and replace anything in [brackets] with your own details.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use these prompts for client or commercial work?</h3>
+      <p>Yes, the prompts themselves are free to use however you like — for yourself, your business, or your clients.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How often do you add new packs?</h3>
+      <p>New prompt packs are added regularly based on what's actually useful and trending — check back or bookmark this page.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; {{ year }} {{ site_name }} · Free AI prompt packs for ChatGPT, Midjourney &amp; Notion AI
+    <div class="foot-links">
+      <a href="#packs">All Packs</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var buttons = document.querySelectorAll('.filter-btn');
+      var cards = document.querySelectorAll('.pack-card');
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          buttons.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.getAttribute('data-filter');
+          cards.forEach(function(card) {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

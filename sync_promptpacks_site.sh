@@ -1,3 +1,5 @@
+mkdir -p content
+cat > content/packs.json << 'PVEOF0'
 {
   "site_name": "PromptVault",
   "tagline": "Free, ready-to-use AI prompt packs for ChatGPT, Midjourney & more.",
@@ -408,3 +410,550 @@
     }
   ]
 }
+PVEOF0
+
+mkdir -p scripts/templates
+cat > scripts/templates/index_template.html << 'PVEOF1'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ site_name }} — Free AI Prompt Packs for ChatGPT, Midjourney & Notion AI</title>
+<meta name="description" content="{{ tagline }} {{ pack_count }} free, ready-to-use prompt packs — no email, no signup, just download and go.">
+<link rel="canonical" href="{{ site_url }}/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ site_name }} — Free AI Prompt Packs">
+<meta property="og:description" content="{{ tagline }}">
+<meta property="og:url" content="{{ site_url }}/">
+<meta property="og:image" content="{{ site_url }}/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{{ schema_json }}
+</script>
+<style>
+  :root { --accent: #7c6fe0; --accent-dark: #4b3f9e; --ink: #1a1a2e; --bg: #fafafa; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+  a { color: inherit; }
+  .topnav { max-width: 1080px; margin: 0 auto; padding: 20px 24px 0; display: flex; justify-content: space-between; align-items: center; }
+  .topnav .logo { font-weight: 800; font-size: 18px; text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+  .topnav .logo svg { display: block; }
+  .topnav nav a { text-decoration: none; color: #555; font-size: 14px; font-weight: 500; margin-left: 22px; }
+  .hero { background: linear-gradient(135deg, var(--ink), var(--accent-dark) 55%, var(--accent)); color: #fff; padding: 60px 24px 90px; text-align: center; margin-top: 20px; border-radius: 28px; max-width: 1080px; margin-left: auto; margin-right: auto; }
+  .hero h1 { font-size: 36px; margin: 0 0 14px; font-weight: 800; letter-spacing: -0.02em; }
+  .hero p.tagline { opacity: 0.92; max-width: 540px; margin: 0 auto 26px; font-size: 16px; line-height: 1.5; }
+  .trustbar { display: inline-flex; gap: 22px; flex-wrap: wrap; justify-content: center; background: rgba(255,255,255,0.12); padding: 10px 22px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .trustbar span { white-space: nowrap; }
+  .filters { max-width: 1080px; margin: -46px auto 0; padding: 0 24px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .filter-btn { background: #fff; border: 1px solid #eaeaf2; color: #444; font-size: 13px; font-weight: 600; padding: 9px 16px; border-radius: 999px; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.05); transition: all 0.15s; }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent-dark); }
+  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .grid { max-width: 1080px; margin: 30px auto 0; padding: 0 24px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
+  .pack-card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); text-decoration: none; color: inherit; display: block; transition: transform 0.15s, box-shadow 0.15s; border: 1px solid #f1f1f6; }
+  .pack-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(76,63,158,0.14); }
+  .pack-card .meta-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .pack-card .cat { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: #7c6fe0; font-weight: 700; }
+  .pack-card .tool-pill { font-size: 10.5px; font-weight: 700; background: #f1effc; color: var(--accent-dark); padding: 3px 9px; border-radius: 999px; }
+  .pack-card h2 { font-size: 17px; margin: 0 0 8px; line-height: 1.35; }
+  .pack-card p { font-size: 13px; color: #666; line-height: 1.5; margin: 0; }
+  .pack-card .count { margin-top: 14px; font-size: 12px; color: #9a94c9; font-weight: 700; }
+  .section { max-width: 780px; margin: 70px auto; padding: 0 24px; }
+  .section h2 { font-size: 24px; text-align: center; margin-bottom: 30px; }
+  .faq-item { background: #fff; border-radius: 12px; padding: 18px 22px; margin-bottom: 12px; border: 1px solid #f1f1f6; }
+  .faq-item h3 { font-size: 15px; margin: 0 0 6px; }
+  .faq-item p { font-size: 14px; color: #666; margin: 0; line-height: 1.55; }
+  footer { border-top: 1px solid #eee; margin-top: 40px; padding: 30px 24px 40px; text-align: center; color: #999; font-size: 12.5px; }
+  footer .foot-links a { margin: 0 10px; color: #888; text-decoration: none; }
+  footer .foot-links a:hover { color: var(--accent-dark); }
+  @media (max-width: 640px) {
+    .hero { border-radius: 18px; padding: 46px 20px 70px; }
+    .hero h1 { font-size: 27px; }
+  }
+</style>
+</head>
+<body>
+  <div class="topnav">
+    <a class="logo" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="7" fill="#7c6fe0"/><path d="M7 12.5L10.5 16L17 8" stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      {{ site_name }}
+    </a>
+    <nav>
+      <a href="#packs">All Packs</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <h1>Free AI Prompt Packs, Ready in Seconds</h1>
+    <p class="tagline">{{ tagline }}</p>
+    <div class="trustbar">
+      <span>📦 {{ pack_count }} prompt packs</span>
+      <span>💸 100% free</span>
+      <span>🚫 No email required</span>
+    </div>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    {% for cat in categories %}
+    <button class="filter-btn" data-filter="{{ cat }}">{{ cat }}</button>
+    {% endfor %}
+  </div>
+
+  <div class="grid" id="packs">
+    {% for pack in packs %}
+    <a class="pack-card" data-category="{{ pack.category }}" href="/packs/{{ pack.slug }}/">
+      <div class="meta-row">
+        <span class="cat">{{ pack.category }}</span>
+        <span class="tool-pill">{{ pack.tool }}</span>
+      </div>
+      <h2>{{ pack.title }}</h2>
+      <p>{{ pack.description[:110] }}{% if pack.description|length > 110 %}...{% endif %}</p>
+      <div class="count">{{ pack.prompt_count }} prompts →</div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Are these prompt packs really free?</h3>
+      <p>Yes — every pack on {{ site_name }} is free to download, no email address or account required. You'll pass through one short ad page on the way to your download, which is how we keep the site running.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need a paid ChatGPT or Midjourney subscription to use these?</h3>
+      <p>No. Most prompts work fine on free tiers — just copy the prompt, paste it into the tool, and replace anything in [brackets] with your own details.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use these prompts for client or commercial work?</h3>
+      <p>Yes, the prompts themselves are free to use however you like — for yourself, your business, or your clients.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How often do you add new packs?</h3>
+      <p>New prompt packs are added regularly based on what's actually useful and trending — check back or bookmark this page.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; {{ year }} {{ site_name }} · Free AI prompt packs for ChatGPT, Midjourney &amp; Notion AI
+    <div class="foot-links">
+      <a href="#packs">All Packs</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var buttons = document.querySelectorAll('.filter-btn');
+      var cards = document.querySelectorAll('.pack-card');
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          buttons.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.getAttribute('data-filter');
+          cards.forEach(function(card) {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+PVEOF1
+
+mkdir -p scripts/templates
+cat > scripts/templates/landing_template.html << 'PVEOF2'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} | {{ site_name }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ site_url }}/packs/{{ slug }}/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ site_url }}/packs/{{ slug }}/">
+<meta property="og:image" content="{{ site_url }}/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{{ schema_json }}
+</script>
+<style>
+  :root { --accent: {{ accent }}; --accent-dark: {{ accent_dark }}; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; margin: 0; background: #fafafa; color: #1a1a2e; }
+  a { color: inherit; }
+  .topnav { max-width: 700px; margin: 0 auto; padding: 20px 24px 0; }
+  .topnav a.logo { text-decoration: none; color: var(--accent-dark); font-weight: 800; font-size: 18px; }
+  .breadcrumb { max-width: 700px; margin: 10px auto 0; padding: 0 24px; font-size: 12.5px; color: #999; }
+  .breadcrumb a { color: #999; text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent-dark); }
+  .hero { background: linear-gradient(135deg, var(--accent-dark), var(--accent)); color: #fff; padding: 44px 24px 56px; text-align: center; margin-top: 14px; }
+  .hero .tag { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; opacity: 0.85; margin-bottom: 10px; }
+  .hero h1 { font-size: 30px; max-width: 700px; margin: 0 auto 14px; line-height: 1.25; font-weight: 800; }
+  .hero p { max-width: 560px; margin: 0 auto; opacity: 0.92; line-height: 1.6; font-size: 15px; }
+  .wrap { max-width: 700px; margin: 0 auto; padding: 40px 24px 0; }
+  .card { background: #fff; border-radius: 14px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); text-align: center; margin-top: -40px; }
+  .card p.count { color: #666; margin: 6px 0 18px; font-size: 14px; }
+  .download-btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; padding: 14px 30px; border-radius: 10px; text-decoration: none; font-size: 16px; transition: transform 0.15s; }
+  .download-btn:hover { transform: translateY(-2px); }
+  .note { font-size: 12px; color: #999; margin-top: 14px; }
+  .preview { margin-top: 36px; }
+  .preview h2 { font-size: 18px; margin-bottom: 14px; }
+  .prompt-preview { background: #fff; border-left: 4px solid var(--accent); border-radius: 6px; padding: 12px 16px; margin-bottom: 8px; font-size: 14px; color: #333; }
+  .more { text-align: center; color: #888; font-size: 13px; padding: 10px; }
+  .mini-faq { margin-top: 48px; }
+  .mini-faq h2 { font-size: 17px; margin-bottom: 14px; }
+  .mini-faq details { background: #fff; border-radius: 10px; padding: 14px 18px; margin-bottom: 8px; border: 1px solid #f1f1f6; }
+  .mini-faq summary { font-size: 14px; font-weight: 600; cursor: pointer; }
+  .mini-faq p { font-size: 13.5px; color: #666; margin: 8px 0 0; line-height: 1.5; }
+  .related { margin-top: 48px; }
+  .related h2 { font-size: 17px; margin-bottom: 14px; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .related-card { background: #fff; border-radius: 10px; padding: 16px; text-decoration: none; color: inherit; border: 1px solid #f1f1f6; font-size: 13px; font-weight: 600; line-height: 1.4; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-cat { display: block; font-size: 10.5px; color: var(--accent-dark); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+  footer { text-align: center; padding: 40px 24px; color: #999; font-size: 12px; }
+  footer a { color: #999; }
+</style>
+</head>
+<body>
+  <div class="topnav">
+    <a class="logo" href="/">{{ site_name }}</a>
+  </div>
+  <div class="breadcrumb"><a href="/">Home</a> / {{ category }}</div>
+  <div class="hero">
+    <div class="tag">Free {{ tool }} Prompt Pack</div>
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+  </div>
+  <div class="wrap">
+    <div class="card">
+      <p class="count">{{ prompt_count }} ready-to-use prompts · Free PDF download</p>
+      <a class="download-btn" href="{{ download_url }}" rel="nofollow noopener" target="_blank">Download Free PDF →</a>
+      <p class="note">You'll pass through one short ad page on the way to your download — thanks for supporting free content.</p>
+    </div>
+    <div class="preview">
+      <h2>Preview a few prompts from this pack:</h2>
+      {% for prompt in preview_prompts %}
+      <div class="prompt-preview">{{ prompt }}</div>
+      {% endfor %}
+      <p class="more">+ {{ remaining_count }} more prompts in the full PDF</p>
+    </div>
+
+    <div class="mini-faq">
+      <h2>Quick questions</h2>
+      <details>
+        <summary>How do I use these prompts?</summary>
+        <p>Copy any prompt, paste it into {{ tool }}, and replace anything in [brackets] with your own specifics before sending it.</p>
+      </details>
+      <details>
+        <summary>Is this really free?</summary>
+        <p>Yes — no email, no account. You'll see one ad page on the way to the download, which is what funds free content like this.</p>
+      </details>
+    </div>
+
+    {% if related_packs %}
+    <div class="related">
+      <h2>More free prompt packs</h2>
+      <div class="related-grid">
+        {% for rp in related_packs %}
+        <a class="related-card" href="/packs/{{ rp.slug }}/">
+          <span class="rc-cat">{{ rp.category }}</span>
+          {{ rp.title }}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <footer>
+    &copy; {{ year }} {{ site_name }} · <a href="/">More free prompt packs</a>
+  </footer>
+</body>
+</html>
+PVEOF2
+
+mkdir -p scripts
+cat > scripts/generate.py << 'PVEOF3'
+#!/usr/bin/env python3
+"""
+Automated pipeline: content/packs.json -> PDFs + landing pages + index page.
+
+Run with no arguments to (re)generate the whole site into ../site/.
+
+ShrinkEarn integration:
+  - If SHRINKEARN_API_KEY is set in the environment, each pack's PDF will be
+    uploaded/linked and wrapped in a ShrinkEarn short link automatically.
+  - If not set, the download button falls back to a direct link to the PDF
+    hosted on the same site (still fully functional, just not monetized yet).
+  - Successful shortlinks are cached in content/shrinkearn_links.json so we
+    never re-create a link for the same pack.
+"""
+import json
+import os
+import random
+import sys
+from datetime import datetime
+from pathlib import Path
+
+import jinja2
+from playwright.sync_api import sync_playwright
+
+ROOT = Path(__file__).resolve().parent.parent
+CONTENT_DIR = ROOT / "content"
+SITE_DIR = ROOT / "site"
+TEMPLATES_DIR = Path(__file__).resolve().parent / "templates"
+LINKS_CACHE = CONTENT_DIR / "shrinkearn_links.json"
+
+ACCENT = "#7c6fe0"
+ACCENT_DARK = "#4b3f9e"
+SITE_URL = os.environ.get("SITE_URL", "https://your-site.vercel.app").rstrip("/")
+PROMPTS_PER_PDF_PAGE = 14
+PREVIEW_COUNT = 4
+RELATED_COUNT = 3
+
+env = jinja2.Environment(loader=jinja2.FileSystemLoader(str(TEMPLATES_DIR)))
+
+
+def load_packs():
+    with open(CONTENT_DIR / "packs.json") as f:
+        return json.load(f)
+
+
+def load_links_cache():
+    if LINKS_CACHE.exists():
+        with open(LINKS_CACHE) as f:
+            return json.load(f)
+    return {}
+
+
+def save_links_cache(cache):
+    with open(LINKS_CACHE, "w") as f:
+        json.dump(cache, f, indent=2)
+
+
+def get_monetized_link(slug: str, pdf_public_url: str, cache: dict) -> str:
+    """Return a ShrinkEarn short link for this pack's PDF, creating one via
+    the API if a key is configured and none is cached yet. Falls back to the
+    direct PDF URL if ShrinkEarn isn't wired up yet."""
+    if slug in cache:
+        return cache[slug]
+
+    api_key = os.environ.get("SHRINKEARN_API_KEY")
+    if not api_key:
+        print(f"  [!] No SHRINKEARN_API_KEY set — using direct PDF link for '{slug}' (not monetized yet)")
+        return pdf_public_url
+
+    try:
+        import requests
+        resp = requests.get(
+            "https://shrinkearn.com/api",
+            params={"api": api_key, "url": pdf_public_url, "format": "text"},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        short_link = resp.text.strip()
+        if short_link.startswith("http"):
+            cache[slug] = short_link
+            save_links_cache(cache)
+            print(f"  [+] Created ShrinkEarn link for '{slug}': {short_link}")
+            return short_link
+        else:
+            print(f"  [!] ShrinkEarn API returned unexpected response for '{slug}': {short_link!r} — using direct link")
+            return pdf_public_url
+    except Exception as e:
+        print(f"  [!] ShrinkEarn API call failed for '{slug}': {e} — using direct link")
+        return pdf_public_url
+
+
+def chunk_prompts(prompts):
+    """Return list of chunks, each a list of (number, prompt) tuples."""
+    chunks = []
+    for i in range(0, len(prompts), PROMPTS_PER_PDF_PAGE):
+        chunk = prompts[i:i + PROMPTS_PER_PDF_PAGE]
+        numbered = [(i + j + 1, p) for j, p in enumerate(chunk)]
+        chunks.append(numbered)
+    return chunks
+
+
+def render_pdf(pack, site_name, out_path, browser):
+    template = env.get_template("pdf_template.html")
+    html = template.render(
+        title=pack["title"],
+        description=pack["description"],
+        tool=pack["tool"],
+        site_name=site_name,
+        site_url=SITE_URL,
+        accent=ACCENT,
+        accent_dark=ACCENT_DARK,
+        prompt_chunks=chunk_prompts(pack["prompts"]),
+    )
+    page = browser.new_page()
+    page.set_content(html, wait_until="load")
+    page.pdf(path=str(out_path), print_background=True, format="A4")
+    page.close()
+
+
+def pick_related(pack, all_packs):
+    others = [p for p in all_packs if p["slug"] != pack["slug"]]
+    same_cat = [p for p in others if p["category"] == pack["category"]]
+    rest = [p for p in others if p["category"] != pack["category"]]
+    random.shuffle(same_cat)
+    random.shuffle(rest)
+    picks = (same_cat + rest)[:RELATED_COUNT]
+    return picks
+
+
+def render_landing_page(pack, site_name, download_url, all_packs, out_path):
+    template = env.get_template("landing_template.html")
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": pack["title"],
+        "description": pack["description"],
+        "url": f"{SITE_URL}/packs/{pack['slug']}/",
+        "isAccessibleForFree": True,
+        "keywords": f"{pack['tool']}, {pack['category']}, AI prompts",
+    }
+    html = template.render(
+        title=pack["title"],
+        description=pack["description"],
+        tool=pack["tool"],
+        category=pack["category"],
+        slug=pack["slug"],
+        site_name=site_name,
+        site_url=SITE_URL,
+        accent=ACCENT,
+        accent_dark=ACCENT_DARK,
+        prompt_count=len(pack["prompts"]),
+        preview_prompts=pack["prompts"][:PREVIEW_COUNT],
+        remaining_count=max(0, len(pack["prompts"]) - PREVIEW_COUNT),
+        download_url=download_url,
+        related_packs=pick_related(pack, all_packs),
+        schema_json=json.dumps(schema),
+        year=datetime.now().year,
+    )
+    out_path.write_text(html)
+
+
+def render_index(data, out_path):
+    template = env.get_template("index_template.html")
+    packs = data["packs"]
+    for p in packs:
+        p["prompt_count"] = len(p["prompts"])
+    categories = sorted(set(p["category"] for p in packs))
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": data["site_name"],
+        "description": data["tagline"],
+        "url": f"{SITE_URL}/",
+        "hasPart": [
+            {
+                "@type": "CreativeWork",
+                "name": p["title"],
+                "url": f"{SITE_URL}/packs/{p['slug']}/",
+            }
+            for p in packs
+        ],
+    }
+    html = template.render(
+        site_name=data["site_name"],
+        tagline=data["tagline"],
+        packs=packs,
+        categories=categories,
+        pack_count=len(packs),
+        site_url=SITE_URL,
+        schema_json=json.dumps(schema),
+        year=datetime.now().year,
+    )
+    out_path.write_text(html)
+
+
+def render_favicon(out_path):
+    svg = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<rect width="24" height="24" rx="7" fill="#7c6fe0"/>
+<path d="M7 12.5L10.5 16L17 8" stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>"""
+    out_path.write_text(svg)
+
+
+def render_og_image(site_name, tagline, out_path, browser):
+    html = f"""<!DOCTYPE html><html><head><style>
+    body {{ margin:0; width:1200px; height:630px; display:flex; flex-direction:column; justify-content:center; align-items:center;
+      background: linear-gradient(135deg, #1a1a2e, #4b3f9e 55%, #7c6fe0); font-family: Arial, sans-serif; color:#fff; text-align:center; }}
+    h1 {{ font-size:76px; margin:0 0 20px; font-weight:800; }}
+    p {{ font-size:28px; opacity:0.9; max-width:800px; margin:0; }}
+    </style></head><body>
+    <h1>{site_name}</h1>
+    <p>{tagline}</p>
+    </body></html>"""
+    page = browser.new_page(viewport={"width": 1200, "height": 630})
+    page.set_content(html, wait_until="load")
+    page.screenshot(path=str(out_path))
+    page.close()
+
+
+def render_robots_and_sitemap(data, out_dir):
+    (out_dir / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
+
+    urls = [f"{SITE_URL}/"] + [f"{SITE_URL}/packs/{p['slug']}/" for p in data["packs"]]
+    body = "\n".join(f"  <url><loc>{u}</loc></url>" for u in urls)
+    sitemap = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{body}\n</urlset>\n'
+    (out_dir / "sitemap.xml").write_text(sitemap)
+
+
+def main():
+    data = load_packs()
+    site_name = data["site_name"]
+    links_cache = load_links_cache()
+
+    SITE_DIR.mkdir(exist_ok=True)
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+
+        for pack in data["packs"]:
+            slug = pack["slug"]
+            pack_dir = SITE_DIR / "packs" / slug
+            pack_dir.mkdir(parents=True, exist_ok=True)
+
+            pdf_path = pack_dir / "pack.pdf"
+            print(f"-> Rendering PDF for '{slug}' ({len(pack['prompts'])} prompts)")
+            render_pdf(pack, site_name, pdf_path, browser)
+
+            pdf_public_url = f"{SITE_URL}/packs/{slug}/pack.pdf"
+            download_url = get_monetized_link(slug, pdf_public_url, links_cache)
+
+            landing_path = pack_dir / "index.html"
+            render_landing_page(pack, site_name, download_url, data["packs"], landing_path)
+            print(f"  [+] Landing page: /packs/{slug}/")
+
+        render_favicon(SITE_DIR / "favicon.svg")
+        render_og_image(site_name, data["tagline"], SITE_DIR / "og-image.png", browser)
+        browser.close()
+
+    render_index(data, SITE_DIR / "index.html")
+    render_robots_and_sitemap(data, SITE_DIR)
+    print(f"\nDone. Site generated at: {SITE_DIR}")
+    print(f"Packs: {len(data['packs'])}")
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+PVEOF3
