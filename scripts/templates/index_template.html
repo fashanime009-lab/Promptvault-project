@@ -19,6 +19,9 @@
 <script type="application/ld+json">
 {{ schema_json }}
 </script>
+<script type="application/ld+json">
+{{ faqpage_json }}
+</script>
 <style>
   :root {
     --ink: #161d27;
@@ -48,7 +51,7 @@
   .topnav nav a:hover { color: #fff; border-color: var(--gold); }
 
   .hero { max-width: 1080px; margin: 0 auto; padding: 10px 24px 64px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
-  .hero-copy h1 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.12; margin: 0 0 18px; font-weight: 600; letter-spacing: -0.01em; }
+  .hero-copy h1 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.12; margin: 0 0 18px; font-weight: 600; letter-spacing: -0.01em; color: #fff; }
   .hero-copy p.tagline { color: #d7d2c3; font-size: 16px; line-height: 1.6; max-width: 46ch; margin: 0 0 22px; }
   .hero-copy p.meta { font-family: var(--mono); font-size: 13px; color: var(--gold); margin: 0; }
 
@@ -63,7 +66,7 @@
 
   .filters-wrap { background: var(--paper); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 5; }
   .filters { max-width: 1080px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: thin; }
-  .filter-btn { flex: 0 0 auto; background: none; border: none; border-bottom: 2px solid transparent; color: var(--muted); font-family: var(--sans); font-size: 14px; font-weight: 500; padding: 14px 12px 12px; cursor: pointer; white-space: nowrap; }
+  .filter-btn { flex: 0 0 auto; background: none; border: none; border-bottom: 2px solid transparent; color: var(--muted); font-family: var(--sans); font-size: 14px; font-weight: 500; padding: 14px 12px 12px; cursor: pointer; white-space: nowrap; text-decoration: none; }
   .filter-btn:hover { color: var(--ink); }
   .filter-btn.active { color: var(--ink); border-color: var(--gold); font-weight: 600; }
 
@@ -84,6 +87,18 @@
   .faq-item:last-child { border-bottom: 1px solid var(--rule); }
   .faq-item h3 { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); margin: 0 0 8px; }
   .faq-item p { font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.6; }
+
+  .blog-teaser-list { display: flex; flex-direction: column; gap: 4px; }
+  .blog-teaser { display: block; text-decoration: none; color: inherit; border-top: 1px solid var(--rule); padding: 18px 0; }
+  .blog-teaser:last-child { border-bottom: 1px solid var(--rule); }
+  .blog-teaser .bt-title { display: block; font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .blog-teaser:hover .bt-title { color: var(--gold-deep); text-decoration: underline; }
+  .blog-teaser .bt-desc { display: block; font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+
+  .email-form { display: flex; gap: 10px; max-width: 420px; flex-wrap: wrap; }
+  .email-form input { flex: 1 1 220px; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 3px; font-family: var(--sans); font-size: 14px; background: var(--card); color: var(--ink); }
+  .email-form button { flex: 0 0 auto; background: var(--gold); border: none; color: var(--ink); font-weight: 600; padding: 12px 22px; border-radius: 3px; cursor: pointer; font-size: 14px; }
+  .email-form button:hover { background: var(--gold-deep); }
 
   footer { padding: 30px 24px 40px; text-align: left; }
   footer .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: #a39d8c; }
@@ -117,6 +132,7 @@
       </a>
       <nav>
         <a href="#packs">All packs</a>
+        <a href="/blog/">Guides</a>
         <a href="#faq">FAQ</a>
       </nav>
     </div>
@@ -141,7 +157,7 @@
     <div class="filters" id="filters">
       <button class="filter-btn active" data-filter="all">All</button>
       {% for cat in categories %}
-      <button class="filter-btn" data-filter="{{ cat }}">{{ cat }}</button>
+      <a class="filter-btn" href="/category/{{ cat.slug }}/" data-filter="{{ cat.name }}">{{ cat.name }}</a>
       {% endfor %}
     </div>
   </div>
@@ -160,24 +176,38 @@
     {% endfor %}
   </div>
 
+  {% if blog_teasers %}
+  <div class="section" id="guides">
+    <h2>Guides</h2>
+    <div class="blog-teaser-list">
+      {% for post in blog_teasers %}
+      <a class="blog-teaser" href="/blog/{{ post.slug }}/">
+        <span class="bt-title">{{ post.title }}</span>
+        <span class="bt-desc">{{ post.description }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if email_capture_action %}
+  <div class="section" id="subscribe">
+    <h2>Get new packs by email</h2>
+    <form class="email-form" action="{{ email_capture_action }}" method="post" target="_blank">
+      <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+  {% endif %}
+
   <div class="section" id="faq">
     <h2>Frequently asked questions</h2>
+    {% for q, a in faq_items %}
     <div class="faq-item">
-      <h3>Are these prompt packs really free?</h3>
-      <p>Yes — every pack on {{ site_name }} is free to download, no email address or account required. You'll pass through one short ad page on the way to your download, which is how we keep the site running.</p>
+      <h3>{{ q }}</h3>
+      <p>{{ a }}</p>
     </div>
-    <div class="faq-item">
-      <h3>Do I need a paid ChatGPT or Midjourney subscription to use these?</h3>
-      <p>No. Most prompts work fine on free tiers — just copy the prompt, paste it into the tool, and replace anything in [brackets] with your own details.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can I use these prompts for client or commercial work?</h3>
-      <p>Yes, the prompts themselves are free to use however you like — for yourself, your business, or your clients.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How often do you add new packs?</h3>
-      <p>New prompt packs are added regularly based on what's actually useful and trending — check back or bookmark this page.</p>
-    </div>
+    {% endfor %}
   </div>
 
   <footer class="band-ink">
@@ -185,6 +215,7 @@
       <span>&copy; {{ year }} {{ site_name }}</span>
       <span>
         <a href="#packs">All packs</a>
+        <a href="/blog/">Guides</a>
         <a href="#faq">FAQ</a>
       </span>
     </div>
@@ -195,7 +226,8 @@
       var buttons = document.querySelectorAll('.filter-btn');
       var cards = document.querySelectorAll('.pack-card');
       buttons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
           buttons.forEach(function(b) { b.classList.remove('active'); });
           btn.classList.add('active');
           var filter = btn.getAttribute('data-filter');

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Write ChatGPT Prompts That Actually Work (With Examples) | PromptVault</title>
+<meta name="description" content="The four-part formula behind every ChatGPT prompt that gets a useful answer on the first try — plus before/after examples you can copy.">
+<link rel="canonical" href="https://site-three-sooty-ex9w3gfa05.vercel.app/blog/how-to-write-chatgpt-prompts-that-work/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Write ChatGPT Prompts That Actually Work (With Examples)">
+<meta property="og:description" content="The four-part formula behind every ChatGPT prompt that gets a useful answer on the first try — plus before/after examples you can copy.">
+<meta property="og:url" content="https://site-three-sooty-ex9w3gfa05.vercel.app/blog/how-to-write-chatgpt-prompts-that-work/">
+<meta property="og:image" content="https://site-three-sooty-ex9w3gfa05.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How to Write ChatGPT Prompts That Actually Work (With Examples)", "description": "The four-part formula behind every ChatGPT prompt that gets a useful answer on the first try \u2014 plus before/after examples you can copy.", "datePublished": "2026-09-22", "url": "https://site-three-sooty-ex9w3gfa05.vercel.app/blog/how-to-write-chatgpt-prompts-that-work/", "author": {"@type": "Organization", "name": "PromptVault"}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://site-three-sooty-ex9w3gfa05.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://site-three-sooty-ex9w3gfa05.vercel.app/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to Write ChatGPT Prompts That Actually Work (With Examples)", "item": "https://site-three-sooty-ex9w3gfa05.vercel.app/blog/how-to-write-chatgpt-prompts-that-work/"}]}
+</script>
+<style>
+  :root {
+    --ink: #161d27; --ink-soft: #414a59; --muted: #7c7566;
+    --paper: #f0eee7; --card: #fbfaf6; --rule: #d9d3c2;
+    --gold: #b8892b; --gold-deep: #7a5c17;
+    --serif: 'Fraunces', serif; --sans: 'IBM Plex Sans', sans-serif; --mono: 'IBM Plex Mono', monospace;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: var(--sans); margin: 0; background: var(--paper); color: var(--ink-soft); }
+  a { color: var(--gold-deep); }
+  h1, h2 { font-family: var(--serif); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  .band-ink { background: var(--ink); color: var(--paper); }
+  .topnav { max-width: 680px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .topnav a.logo { text-decoration: none; color: #fff; font-family: var(--serif); font-weight: 600; font-size: 17px; }
+  .crumb { color: #a39d8c; }
+  .crumb a { text-decoration: none; color: #a39d8c; }
+  .crumb a:hover { color: var(--gold); }
+
+  .hero { max-width: 640px; margin: 0 auto; padding: 44px 24px 4px; }
+  .hero .p-date { font-family: var(--mono); font-size: 12px; color: var(--gold-deep); margin: 0 0 12px; }
+  .hero h1 { font-size: clamp(26px, 4.6vw, 36px); line-height: 1.22; margin: 0 0 14px; font-weight: 600; }
+  .hero p.desc { color: var(--ink-soft); font-size: 15.5px; line-height: 1.6; margin: 0; }
+
+  .article { max-width: 640px; margin: 0 auto; padding: 30px 24px 0; font-size: 16px; line-height: 1.7; }
+  .article h2 { font-size: 21px; margin: 36px 0 14px; font-weight: 600; }
+  .article p { margin: 0 0 16px; }
+  .article ul { margin: 0 0 16px; padding-left: 22px; }
+  .article li { margin-bottom: 8px; }
+
+  .mentioned { max-width: 640px; margin: 48px auto 0; padding: 0 24px; }
+  .mentioned h2 { font-size: 17px; margin: 0 0 14px; font-weight: 600; font-family: var(--serif); color: var(--ink); }
+  .mentioned-list a { display: flex; justify-content: space-between; gap: 16px; text-decoration: none; color: inherit; padding: 13px 0; border-top: 1px solid var(--rule); font-size: 14px; }
+  .mentioned-list a:last-child { border-bottom: 1px solid var(--rule); }
+  .mentioned-list a:hover .m-title { color: var(--gold-deep); text-decoration: underline; }
+  .m-title { font-weight: 500; color: var(--ink); }
+  .m-cat { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+
+  footer { padding: 40px 24px 44px; text-align: center; font-size: 12.5px; color: var(--muted); }
+  footer a { text-decoration: none; color: var(--gold-deep); }
+
+  @media (max-width: 560px) {
+    .topnav { padding: 16px 20px; }
+    .hero { padding: 34px 20px 4px; }
+    .article { padding: 24px 20px 0; font-size: 15.5px; }
+  }
+</style>
+</head>
+<body>
+  <div class="band-ink">
+    <div class="topnav">
+      <a class="logo" href="/">PromptVault</a>
+      <div class="crumb"><a href="/">Home</a> / <a href="/blog/">Guides</a></div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <p class="p-date">2026-09-22</p>
+    <h1>How to Write ChatGPT Prompts That Actually Work (With Examples)</h1>
+    <p class="desc">The four-part formula behind every ChatGPT prompt that gets a useful answer on the first try — plus before/after examples you can copy.</p>
+  </div>
+
+  <article class="article">
+    
+      
+        <p>Most bad ChatGPT answers aren't the model's fault — they're the prompt's fault. Ask a vague question and you get a vague answer; the fix isn't a magic phrase, it's structure.</p>
+      
+    
+      
+        <h2>The four-part formula</h2>
+      
+    
+      
+        <p>Every reliable prompt has four ingredients, in this order: a role, a task, constraints, and a format. Skip any one of them and you're leaving ChatGPT to guess.</p>
+      
+    
+      
+        <ul>
+          <li>Role — who should ChatGPT act as? ("Act as a hiring manager...")</li><li>Task — the specific thing you want done, not the topic in general.</li><li>Constraints — length, tone, audience, what to avoid.</li><li>Format — bullet points, a table, a script, a numbered list.</li>
+        </ul>
+      
+    
+      
+        <h2>Before and after</h2>
+      
+    
+      
+        <p>Weak prompt: "Write about marketing for my bakery." That's a topic, not an instruction — ChatGPT has to guess your tone, length, and goal.</p>
+      
+    
+      
+        <p>Strong prompt: "Act as a marketing strategist. Write 5 Instagram captions for a home bakery launching a fall pumpkin bread, casual and warm tone, under 150 characters each." Same topic, four times more useful.</p>
+      
+    
+      
+        <h2>Three mistakes that quietly ruin prompts</h2>
+      
+    
+      
+        <ul>
+          <li>Asking for everything at once — split multi-step requests into a sequence of prompts instead.</li><li>Forgetting to say who the output is for — "explain X" to a beginner is a different answer than to an expert.</li><li>Not giving ChatGPT permission to ask questions back when your request is ambiguous.</li>
+        </ul>
+      
+    
+      
+        <h2>A shortcut: start from a template</h2>
+      
+    
+      
+        <p>If writing prompts from scratch feels slow, start from ones that already follow this structure and swap in your own details — that's the entire idea behind the free prompt packs linked below.</p>
+      
+    
+  </article>
+
+  
+  <div class="mentioned">
+    <h2>Free packs mentioned in this guide</h2>
+    <div class="mentioned-list">
+      
+      <a href="/packs/chatgpt-prompts-small-business-marketing/">
+        <span class="m-title">30 ChatGPT Prompts for Small Business Marketing</span>
+        <span class="m-cat">Business & Marketing</span>
+      </a>
+      
+      <a href="/packs/chatgpt-prompts-study-smarter/">
+        <span class="m-title">30 ChatGPT Prompts to Study Smarter</span>
+        <span class="m-cat">Students & Learning</span>
+      </a>
+      
+      <a href="/packs/ai-prompts-content-creators-social-media/">
+        <span class="m-title">30 AI Prompts for Content Creators & Social Media</span>
+        <span class="m-cat">Content Creation</span>
+      </a>
+      
+      <a href="/packs/chatgpt-prompts-resume-job-hunting/">
+        <span class="m-title">25 ChatGPT Prompts for Resume, Cover Letters & Job Hunting</span>
+        <span class="m-cat">Career</span>
+      </a>
+      
+    </div>
+  </div>
+  
+
+  <footer>
+    &copy; 2026 PromptVault · <a href="/blog/">More guides</a> · <a href="/">All packs</a>
+  </footer>
+</body>
+</html>

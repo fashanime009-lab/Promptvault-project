@@ -1,0 +1,94 @@
+{
+  "posts": [
+    {
+      "slug": "how-to-write-chatgpt-prompts-that-work",
+      "title": "How to Write ChatGPT Prompts That Actually Work (With Examples)",
+      "description": "The four-part formula behind every ChatGPT prompt that gets a useful answer on the first try — plus before/after examples you can copy.",
+      "date": "2026-09-22",
+      "related_slugs": [
+        "chatgpt-prompts-small-business-marketing",
+        "chatgpt-prompts-study-smarter",
+        "ai-prompts-content-creators-social-media",
+        "chatgpt-prompts-resume-job-hunting"
+      ],
+      "body": [
+        { "type": "p", "text": "Most bad ChatGPT answers aren't the model's fault — they're the prompt's fault. Ask a vague question and you get a vague answer; the fix isn't a magic phrase, it's structure." },
+        { "type": "h2", "text": "The four-part formula" },
+        { "type": "p", "text": "Every reliable prompt has four ingredients, in this order: a role, a task, constraints, and a format. Skip any one of them and you're leaving ChatGPT to guess." },
+        { "type": "ul", "items": [
+          "Role — who should ChatGPT act as? (\"Act as a hiring manager...\")",
+          "Task — the specific thing you want done, not the topic in general.",
+          "Constraints — length, tone, audience, what to avoid.",
+          "Format — bullet points, a table, a script, a numbered list."
+        ]},
+        { "type": "h2", "text": "Before and after" },
+        { "type": "p", "text": "Weak prompt: \"Write about marketing for my bakery.\" That's a topic, not an instruction — ChatGPT has to guess your tone, length, and goal." },
+        { "type": "p", "text": "Strong prompt: \"Act as a marketing strategist. Write 5 Instagram captions for a home bakery launching a fall pumpkin bread, casual and warm tone, under 150 characters each.\" Same topic, four times more useful." },
+        { "type": "h2", "text": "Three mistakes that quietly ruin prompts" },
+        { "type": "ul", "items": [
+          "Asking for everything at once — split multi-step requests into a sequence of prompts instead.",
+          "Forgetting to say who the output is for — \"explain X\" to a beginner is a different answer than to an expert.",
+          "Not giving ChatGPT permission to ask questions back when your request is ambiguous."
+        ]},
+        { "type": "h2", "text": "A shortcut: start from a template" },
+        { "type": "p", "text": "If writing prompts from scratch feels slow, start from ones that already follow this structure and swap in your own details — that's the entire idea behind the free prompt packs linked below." }
+      ]
+    },
+    {
+      "slug": "midjourney-prompt-formula-consistent-results",
+      "title": "The Midjourney Prompt Formula for Consistent, Professional Results",
+      "description": "Why your Midjourney results look random from prompt to prompt, and the five-part structure professional AI artists use to get consistent, gallery-quality output.",
+      "date": "2026-09-22",
+      "related_slugs": [
+        "midjourney-prompts-portrait-photography",
+        "midjourney-prompts-logo-brand-design"
+      ],
+      "body": [
+        { "type": "p", "text": "If your Midjourney results feel like a slot machine — great one prompt, muddy the next — the problem is usually missing structure, not bad luck." },
+        { "type": "h2", "text": "The five layers of a strong prompt" },
+        { "type": "ul", "items": [
+          "Subject — what's actually in frame, described concretely.",
+          "Style — photography, painting, 3D render, illustration, and by whom or in what era.",
+          "Lighting — golden hour, studio softbox, harsh noon sun, neon — lighting does more work than any other single word.",
+          "Composition — camera angle, lens, framing (close-up, wide, aerial).",
+          "Parameters — aspect ratio (--ar), stylization, and version flags at the end."
+        ]},
+        { "type": "h2", "text": "Why order matters" },
+        { "type": "p", "text": "Midjourney weighs earlier words in a prompt more heavily. Put your subject first, parameters last, and keep style, lighting, and composition in the middle — reordering the same words can noticeably change the output." },
+        { "type": "h2", "text": "A worked example" },
+        { "type": "p", "text": "Weak: \"a woman, portrait, nice lighting\". Strong: \"editorial portrait of a woman, soft window light, 85mm lens, shallow depth of field, muted color palette --ar 4:5\". Same idea, dramatically more consistent results." },
+        { "type": "h2", "text": "Building a repeatable style" },
+        { "type": "p", "text": "Once you find a combination of style, lighting, and composition words that works, reuse that exact phrasing across a project — consistency comes from repeating a formula, not from luck." },
+        { "type": "p", "text": "The Midjourney prompt packs linked below are built exactly this way — copy one, then swap only the subject to keep the same professional look across a whole shoot." }
+      ]
+    },
+    {
+      "slug": "free-ai-tools-small-business-marketing-2026",
+      "title": "8 Free Ways to Use AI for Small Business Marketing in 2026",
+      "description": "Practical, no-budget ways small business owners are using ChatGPT to do the marketing work they'd otherwise pay an agency for.",
+      "date": "2026-09-22",
+      "related_slugs": [
+        "chatgpt-prompts-small-business-marketing",
+        "chatgpt-prompts-freelancers-proposals"
+      ],
+      "body": [
+        { "type": "p", "text": "Hiring a marketing agency starts at hundreds of dollars a month. For most small businesses, ChatGPT and a few free tools can cover a surprising share of that work — if you know what to ask for." },
+        { "type": "h2", "text": "Eight things you can hand to AI this week" },
+        { "type": "ul", "items": [
+          "A week of social captions — generate 7 at once, then edit for voice instead of starting from a blank page.",
+          "A first-draft email campaign — welcome series, re-engagement, or a holiday promo, ready to personalize.",
+          "Blog post titles and outlines — the slowest part of content marketing is deciding what to write, not writing it.",
+          "A customer FAQ page — feed it your common support questions, get back clear, on-brand answers.",
+          "Ad copy variations — generate 5 versions of one ad to test instead of guessing which angle works.",
+          "A competitor comparison outline — structure, not opinion; you fill in the specifics.",
+          "A press release draft for a launch or milestone — the format is formulaic, which is exactly what AI is good at.",
+          "A referral or loyalty program description — turn a rough idea into copy customers will actually read."
+        ]},
+        { "type": "h2", "text": "The one rule that matters" },
+        { "type": "p", "text": "AI drafts, you decide. The fastest way to sound generic is publishing the first output verbatim — the value is in how much editing time it saves you, not in skipping the edit entirely." },
+        { "type": "h2", "text": "Where to start" },
+        { "type": "p", "text": "If you're not sure what to ask for, start from prompts that already work and swap in your own business details — that's faster than writing from a blank page, and it's exactly what the free marketing prompt pack linked below is for." }
+      ]
+    }
+  ]
+}

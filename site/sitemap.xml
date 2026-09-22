@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/blog/</loc></url>
   <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-small-business-marketing/</loc></url>
   <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/packs/midjourney-prompts-portrait-photography/</loc></url>
   <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-study-smarter/</loc></url>
@@ -12,4 +13,17 @@
   <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-meal-planning-recipes/</loc></url>
   <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-freelancers-proposals/</loc></url>
   <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/packs/chatgpt-prompts-parents-family-organization/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/category/ai-art-design/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/category/business-marketing/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/category/career/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/category/content-creation/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/category/family-home/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/category/food-home/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/category/freelance-business/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/category/productivity/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/category/students-learning/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/category/travel/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/blog/how-to-write-chatgpt-prompts-that-work/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/blog/midjourney-prompt-formula-consistent-results/</loc></url>
+  <url><loc>https://site-three-sooty-ex9w3gfa05.vercel.app/blog/free-ai-tools-small-business-marketing-2026/</loc></url>
 </urlset>

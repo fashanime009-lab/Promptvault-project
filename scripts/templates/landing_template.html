@@ -19,6 +19,12 @@
 <script type="application/ld+json">
 {{ schema_json }}
 </script>
+<script type="application/ld+json">
+{{ breadcrumb_json }}
+</script>
+<script type="application/ld+json">
+{{ faqpage_json }}
+</script>
 <style>
   :root {
     --ink: #161d27;
@@ -57,6 +63,18 @@
   .download-btn { display: inline-block; background: var(--accent); color: var(--ink); font-weight: 600; padding: 15px 32px; border-radius: 3px; text-decoration: none; font-size: 15.5px; transition: transform 0.15s ease, background 0.15s ease; }
   .download-btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
   .note { font-size: 12px; color: var(--muted); margin: 16px 0 0; }
+
+  .share-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 22px; justify-content: center; }
+  .share-label { font-size: 12px; color: var(--muted); margin-right: 4px; }
+  .share-btn { font-size: 12px; font-weight: 600; color: var(--ink-soft); text-decoration: none; border: 1px solid var(--rule); padding: 6px 12px; border-radius: 999px; }
+  .share-btn:hover { border-color: var(--accent); color: var(--ink); }
+
+  .email-capture { margin-top: 30px; background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 20px; text-align: center; }
+  .ec-label { font-size: 13px; color: var(--ink-soft); margin: 0 0 12px; }
+  .email-form { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .email-form input { flex: 1 1 200px; max-width: 260px; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 3px; font-family: var(--sans); font-size: 13.5px; background: #fff; color: var(--ink); }
+  .email-form button { flex: 0 0 auto; background: var(--accent); border: none; color: var(--ink); font-weight: 600; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 13.5px; }
+  .email-form button:hover { background: var(--accent-dark); }
 
   .preview { margin-top: 52px; }
   .preview h2 { font-size: 19px; margin: 0 0 6px; font-weight: 600; }
@@ -106,7 +124,7 @@
   <div class="band-ink">
     <div class="topnav">
       <a class="logo" href="/">{{ site_name }}</a>
-      <div class="crumb"><a href="/">Home</a> / {{ category }}</div>
+      <div class="crumb"><a href="/">Home</a> / <a href="/category/{{ category_slug }}/">{{ category }}</a></div>
     </div>
   </div>
 
@@ -122,6 +140,24 @@
       <a class="download-btn" href="{{ download_url }}" rel="nofollow noopener" target="_blank">Download the PDF</a>
       <p class="note">You'll pass through one short ad page on the way to your download — thanks for supporting free content.</p>
     </div>
+
+    <div class="share-row">
+      <span class="share-label">Share this pack</span>
+      <a class="share-btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text={{ title|urlencode }}&url={{ share_url|urlencode }}">X</a>
+      <a class="share-btn" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url|urlencode }}">Facebook</a>
+      <a class="share-btn" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url|urlencode }}">LinkedIn</a>
+      <a class="share-btn" target="_blank" rel="noopener" href="https://www.reddit.com/submit?url={{ share_url|urlencode }}&title={{ title|urlencode }}">Reddit</a>
+    </div>
+
+    {% if email_capture_action %}
+    <div class="email-capture">
+      <p class="ec-label">Want new packs sent to you instead of checking back?</p>
+      <form class="email-form" action="{{ email_capture_action }}" method="post" target="_blank">
+        <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    {% endif %}
 
     <div class="preview">
       <h2>Inside this pack</h2>
@@ -164,7 +200,7 @@
   </div>
 
   <footer>
-    &copy; {{ year }} {{ site_name }} · <a href="/">More free prompt packs</a>
+    &copy; {{ year }} {{ site_name }} · <a href="/">More free prompt packs</a> · <a href="/blog/">Guides</a>
   </footer>
 
   <script>
