@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{{ title }}</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    color: #1a1a2e;
+    background: #ffffff;
+  }
+  .cover {
+    height: 297mm;
+    width: 210mm;
+    background: linear-gradient(135deg, {{ accent_dark }} 0%, {{ accent }} 100%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40mm 20mm;
+    page-break-after: always;
+  }
+  .cover .kicker {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0.85;
+    margin-bottom: 14px;
+  }
+  .cover h1 {
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 0 0 18px 0;
+    font-weight: 800;
+  }
+  .cover p {
+    font-size: 15px;
+    max-width: 130mm;
+    opacity: 0.92;
+    line-height: 1.5;
+  }
+  .cover .brand {
+    position: absolute;
+    bottom: 18mm;
+    font-size: 13px;
+    letter-spacing: 1px;
+    opacity: 0.85;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 18mm 18mm 14mm 18mm;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid {{ accent }};
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .header .site {
+    font-weight: 800;
+    color: {{ accent_dark }};
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .header .tool-tag {
+    background: {{ accent }};
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .prompt-card {
+    background: #f7f7fb;
+    border-left: 4px solid {{ accent }};
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .prompt-num {
+    font-weight: 800;
+    color: {{ accent_dark }};
+    margin-right: 6px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 10mm;
+    left: 18mm;
+    right: 18mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #888;
+    border-top: 1px solid #eee;
+    padding-top: 6px;
+  }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="kicker">Free Prompt Pack · {{ tool }}</div>
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+    <div class="brand">{{ site_name }} · {{ site_url }}</div>
+  </div>
+
+  {% for chunk in prompt_chunks %}
+  <div class="page">
+    <div class="header">
+      <div class="site">{{ site_name }}</div>
+      <div class="tool-tag">{{ tool }}</div>
+    </div>
+    {% for num, prompt in chunk %}
+    <div class="prompt-card">
+      <span class="prompt-num">{{ num }}.</span>{{ prompt }}
+    </div>
+    {% endfor %}
+    <div class="footer">
+      <span>{{ title }}</span>
+      <span>{{ site_url }}</span>
+    </div>
+  </div>
+  {% endfor %}
+</body>
+</html>
